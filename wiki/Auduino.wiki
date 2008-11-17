@@ -1,5 +1,5 @@
 #summary Details of the Auduino synthesiser
-#labels auduino,arduino
+#labels auduino,arduino,Featured
 
 = Introduction =
 
