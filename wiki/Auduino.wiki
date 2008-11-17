@@ -1,5 +1,6 @@
 #summary Details of the Auduino synthesiser
 #labels auduino,arduino,Featured
+http://farm4.static.flickr.com/3248/3025517948_f238f20ac2_m.jpg
 
 = Introduction =
 
