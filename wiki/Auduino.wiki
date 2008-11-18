@@ -19,7 +19,7 @@ Download the source code from the the [http://code.google.com/p/tinkerit Tinker.
 = Construction =
 http://farm4.static.flickr.com/3151/3038569386_fc884579a8_o.png
 
-Auduino uses 5 controls. You can use anything that generates a 0-5V analogue signal, but the prototype uses five 4.7Kohm potentiometers. Connect one side of each potentiometer to GND. Connect the other side to the 5V pin on Arduino. Connect the middle (wiper) pins to Analog inputs 0 to 4 on the Arduino.
+Auduino uses 5 controls. You can use anything that generates a 0-5V analogue signal, but the prototype uses five 4.7Kohm linear potentiometers. Connect one side of each potentiometer to GND. Connect the other side to the 5V pin on Arduino. Connect the middle (wiper) pins to Analog inputs 0 to 4 on the Arduino.
 
 The audio comes out of Digital pin 3. The prototype uses a 1/4" jack socket, with the tip connected to pin 3 and the shield connected to GND. Plug the other end into an audio amplifier, and you're good to go.
 
