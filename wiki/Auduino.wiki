@@ -26,7 +26,7 @@ The audio comes out of Digital pin 3. The prototype uses a 1/4" jack socket, wit
 The Arduino can drive a small piezo, speaker or headphones directly. Strictly speaking it outputs at 5V rather than the 1V line level, but most amplifiers don't seem to mind.
 
 = Auduino controller hacks =
-The Auduino can take any analogue signal and make it audible. Add a Light Dependent Resistor, you have an instant theremin. Add a linear softpot, instant keyboard. The [http://www.arduino.cc/playground/ Arduino Playground] is a great place to get new ideas.
+The Auduino can take any analogue signal and make it audible. Add a [http://www.rapidonline.com/Electronic-Components/Optoelectronics/Photodetectors/Miniature-light-dependent-resistor/29399/kw/light%20dependent%20resistor Light Dependent Resistor], you have an instant theremin. Add a [http://www.sparkfun.com/commerce/product_info.php?products_id=8607 linear softpot], instant keyboard. The [http://www.arduino.cc/playground/ Arduino Playground] is a great place to get new ideas.
 
 = Auduino software hacks =
 Have a look at the loop() function. The controllers are mapped to the synthesiser parameters there. You can really customise the controllers there - adding different musical scales, vibrato, envelopes - whatever takes your fancy.
