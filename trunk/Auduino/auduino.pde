@@ -10,6 +10,8 @@
 //
 // Digital 3: Audio out
 //
+// Changelog:
+// 19 Nov 2008: Added support for ATmega8 boards
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
@@ -37,8 +39,16 @@ uint8_t grain2Decay;
 #define LED_BIT   5
 
 // Changing these will also requires rewriting audioOn()
+
+#if defined(__AVR_ATmega168__)
+// For modern ATmega168 boards, output is on pin 3
 #define PWM_PIN       3
 #define PWM_VALUE     OCR2B
+#else
+// On old ATmega8 boards, output is on pin 11
+#define PWM_PIN       11
+#define PWM_VALUE     OCR2
+#endif
 #define PWM_INTERRUPT SIG_OVERFLOW2
 
 // Smooth logarithmic mapping
@@ -84,10 +94,16 @@ uint16_t mapPentatonic(uint16_t input) {
 
 
 void audioOn() {
+#if defined(__AVR_ATmega168__)
   // Set up PWM to 31.25kHz, phase accurate
   TCCR2A = _BV(COM2B1) | _BV(WGM20);
   TCCR2B = _BV(CS20);
   TIMSK2 = _BV(TOIE2);
+#else
+  // ATmega8 has different registers
+  TCCR2 = _BV(WGM20) | _BV(COM21) | _BV(CS20);
+  TIMSK = _BV(TOIE2);
+#endif
 }
 
 
@@ -107,10 +123,10 @@ void loop() {
   //syncPhaseInc = mapPhaseInc(analogRead(SYNC_CONTROL)) / 4;
   
   // Stepped mapping to MIDI notes: C, Db, D, Eb, E, F...
-  syncPhaseInc = mapMidi(analogRead(SYNC_CONTROL));
+  //syncPhaseInc = mapMidi(analogRead(SYNC_CONTROL));
   
   // Stepped pentatonic mapping: D, E, G, A, B
-  //syncPhaseInc = mapPentatonic(analogRead(SYNC_CONTROL));
+  syncPhaseInc = mapPentatonic(analogRead(SYNC_CONTROL));
 
   grainPhaseInc  = mapPhaseInc(analogRead(GRAIN_FREQ_CONTROL)) / 2;
   grainDecay     = analogRead(GRAIN_DECAY_CONTROL) / 8;
