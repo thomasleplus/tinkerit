@@ -1,0 +1,18 @@
+#summary SimpleDmx library - Driving DMX from Arduino
+
+This library gives you a simple way to drive DMX from Arduino.
+
+= Installation =
+
+Download [the archive]. Extract to (arduino install)/hardware/libraries/SimpleDmx . Restart Arduino so it recognises the library.
+
+= Example code =
+Examples are in File > Sketchbook > Libraries > SimpleDmx
+
+= Function calls =
+  * SimpleDmx.begin();
+  Set up the DMX system. This must be called before DMX will work.
+  * SimpleDmx.write(channel, value);
+  Set DMX channel to value.
+  Channel has the range 1 to 128 (DMX channels above 128 are not supported).
+  Value is in the range 0 (off) to 255 (full brightness).
