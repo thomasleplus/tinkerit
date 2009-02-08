@@ -4,7 +4,7 @@ This library gives you a simple way to drive DMX from Arduino.
 
 = Installation =
 
-Download [the archive]. Extract to (arduino install)/hardware/libraries/SimpleDmx . Restart Arduino so it recognises the library.
+Download [http://tinkerit.googlecode.com/files/DmxSimple.zip the archive]. Extract to (arduino install)/hardware/libraries/SimpleDmx . Restart Arduino so it recognises the library.
 
 = Example code =
 Examples are in File > Sketchbook > Libraries > SimpleDmx
