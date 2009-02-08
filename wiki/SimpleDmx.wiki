@@ -17,3 +17,8 @@ Examples are in File > Sketchbook > Libraries > SimpleDmx
   Set DMX channel to value.
   Channel has the range 1 to 128 (DMX channels above 128 are not supported).
   Value is in the range 0 (off) to 255 (full brightness).
+
+= Library incompatibilities =
+  * Timer 1 is used. This breaks analogWrite on pins 9 and 10. Pins 5, 6 and 11 are still available for PWM output.
+  * A significant amount of time is spent with interrupts off. Avoid using the serial port for high speed communication, as the receiver may miss some characters.
+  * Pin 3 is permanently in use for DMX.
