@@ -28,4 +28,4 @@
 
   [http://tinkerit.myshopify.com/products/arduino Arduino]
 
-  [http://www.ikea.com/gb/en/catalog/products/40078049 Ikea Ribba 14cm frame]
+  [http://www.ikea.com/gb/en/catalog/products/40078049 Ikea Ribba 23cm frame]
