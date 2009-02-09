@@ -9,7 +9,7 @@
   We measure the amount of tea within the teapot using a kitchen scale, then represent that using an industrial panel meter. A wireless infrared scale is used - we use the original transmitter, but replace the receiver with a newly designed Arduino based system.
 
 = The Scales =
-
+http://www.salterhousewares.com/media/catalog/product/cache/14/image/5e06319eda06f020e43594a9c230972d/1/2/1200SVDR_1.jpg
   This design needed to be clean and neat, and commercial products are often well made and easily available. The nearest product to a tea measuring device is a kitchen scale. The Salter 1200CD digital kitchen scale has a separate measuring pad and readout, allowing us to keep as many wires as possible out of the kitchen. By connecting test points from the receiver into the Line In of a sound card, we captured data packets and examined them using Audacity. The detailed protocol is documented within the source code.
 
 = The Receiver =
