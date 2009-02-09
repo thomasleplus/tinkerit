@@ -24,9 +24,8 @@
 
   [http://uk.rs-online.com/web/search/searchBrowseAction.html?method=getProduct&R=0313671 RS #313-671 Howard Butler 75mV moving coil panel meter]
 
+  [http://uk.rs-online.com/web/search/searchBrowseAction.html?method=getProduct&R=6548930 RS #654-8930 Osram SFH 5110-38 38kHz Infrared receiver / demodulator]
+
   [http://www.sparkfun.com/commerce/product_info.php?products_id=8689 Arduino Skinny]
 
   [http://www.ikea.com/gb/en/catalog/products/40078049 Ikea Ribba 14cm frame]
-
-  [http://uk.rs-online.com/web/search/searchBrowseAction.html?method=getProduct&R=6548930 RS #654-8930 Osram SFH 5110-38 38kHz Infrared receiver / demodulator]
-
