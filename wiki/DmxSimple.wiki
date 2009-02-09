@@ -1,4 +1,5 @@
 #summary DmxSimple library - Driving DMX from Arduino
+#labels Featured,DMX,Arduino
 http://farm4.static.flickr.com/3360/3190705653_6c64cd4922_m.jpg
 
 This library gives you a simple way to drive DMX from Arduino. DMX output is on digital pin 3, which is compatible with the Tinker.it! DMX shield.
@@ -8,7 +9,23 @@ This library gives you a simple way to drive DMX from Arduino. DMX output is on 
 Download [http://tinkerit.googlecode.com/files/DmxSimple.zip the archive]. Extract to (arduino install)/hardware/libraries/DmxSimple . Restart Arduino so it recognises the library.
 
 = Example code =
-Examples are in File > Sketchbook > Libraries > DmxSimple
+{{{
+#include <DmxInterrupt.h>  // These lines are inserted by
+#include <DmxSimple.h>     // Import Library > DmxSimple
+
+void setup() {
+  DmxSimple.begin();       // Set up DMX system
+}
+
+void loop() {
+  int a;
+  for (a=0; a<=255; a++) {
+    DmxSimple.write(1, a); // Set DMX channel 1 to new value
+    delay(10);             // Wait 10ms
+  }
+}
+}}}
+This fades DMX channel 1 from 0 to 255.
 
 = Function calls =
   * DmxSimple.begin();
