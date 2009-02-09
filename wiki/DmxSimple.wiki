@@ -50,9 +50,12 @@ void loop() {
 This fades DMX channel 1 from 0 to 255.
 
 = Function calls =
-  * DmxSimple.begin();
+  {{{DmxSimple.begin();}}}
+
   Set up the DMX system. This must be called before DMX will work.
-  * DmxSimple.write(channel, value);
+
+  {{{DmxSimple.write(channel, value);}}}
+
   Set DMX channel to value.
   Channel has the range 1 to 128 (DMX channels above 128 are not supported).
   Value is in the range 0 (off) to 255 (full brightness).
