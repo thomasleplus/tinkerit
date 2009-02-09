@@ -13,7 +13,7 @@ http://www.salterhousewares.com/media/catalog/product/cache/14/image/5e06319eda0
   This design needed to be clean and neat, and commercial products are often well made and easily available. The nearest product to a tea measuring device is a kitchen scale. The Salter 1200CD digital kitchen scale has a separate measuring pad and readout, allowing us to keep as many wires as possible out of the kitchen. By connecting test points from the receiver into the Line In of a sound card, we captured data packets and examined them using Audacity. The detailed protocol is documented within the source code.
 
 = The Receiver =
-
+http://farm4.static.flickr.com/3385/3267299228_c22d2a3e9a.jpg
   The receiver uses a 38kHz infrared remote receiver, connected to the Arduino.
   The Arduino decodes the protocols, performs the appropriate calculations, and presents the tea fill level to a PWM output.
   The meter is wired with a series resistor, so the PWM output directly controls the needle position.
