@@ -9,7 +9,7 @@ DmxSimple handles all communication with the DMX bus for you, sending out data p
 
 = Compatibility =
 SimpleDMX is compatible with all 16MHz Arduinos, using both the Mega8 and Mega168 chips. 
-|| *Board* || *SimpleDmx support* || *Tinker.it! DMX Shield support* ||
+|| *Arduino Board* || *SimpleDmx support* || *Tinker.it! DMX Shield support* ||
 || Duemilanove || Yes || Yes ||
 || Diecimila || Yes || Yes ||
 || Bluetooth / BT || Yes || Yes ||
@@ -18,10 +18,13 @@ SimpleDMX is compatible with all 16MHz Arduinos, using both the Mega8 and Mega16
 || Nano || Yes || No ||
 || Mini || Yes || No ||
 || Pro Mini (16MHz version) || Yes || No ||
+|| Bare Bones Board] || Yes || No ||
+|| RBBB || Yes || No ||
 || Lilypad || No || No ||
 || Pro (Non-16MHz versions) || No || No ||
 || Pro Mini (Non-16MHz versions) || No || No ||
-
+|| Funnel I/O || No || No ||
+|| Skinny || No || No ||
 
 = Installation =
 
