@@ -19,7 +19,7 @@ SimpleDMX is compatible with all 16MHz Arduinos using Mega168 chips.
 || Nano || Yes || No ||
 || Mini || Yes || No ||
 || Pro Mini || 16MHz only || No ||
-|| Bare Bones Board] || Yes || No ||
+|| Bare Bones Board || Yes || No ||
 || RBBB || Yes || No ||
 || Lilypad || No || No ||
 || Funnel I/O || No || No ||
