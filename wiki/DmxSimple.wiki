@@ -8,13 +8,14 @@ DmxSimple handles all communication with the DMX bus for you, sending out data p
 
 
 = Compatibility =
-SimpleDMX is compatible with all 16MHz Arduinos, using both the Mega8 and Mega168 chips. 
+SimpleDMX is compatible with all 16MHz Arduinos using Mega168 chips. 
 || *Arduino Board* || *DmxSimple support* || *Tinker.it! DMX Shield support* ||
 || Duemilanove || Yes || Yes ||
 || Diecimila || Yes || Yes ||
 || Bluetooth / BT || Yes || Yes ||
 || Pro (16MHz version) || Yes || Yes ||
-|| Serial (with 16MHz crystal) || Yes || Yes ||
+|| NG || Mega168 only || Yes ||
+|| Serial (with 16MHz crystal) || No || Yes ||
 || Nano || Yes || No ||
 || Mini || Yes || No ||
 || Pro Mini (16MHz version) || Yes || No ||
