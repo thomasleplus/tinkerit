@@ -4,8 +4,7 @@ http://farm4.static.flickr.com/3360/3190705653_6c64cd4922_m.jpg
 
 This library gives you a simple way to drive DMX from Arduino. DMX output is on digital pin 3, which is compatible with the Tinker.it! DMX shield.
 
-!DmxSimple handles all communication with the DMX bus for you, sending out data packets at frequent intervals.
-
+!DmxSimple handles all communication with the DMX bus, automatically transmitting data packets at frequent intervals.
 
 = Compatibility =
 SimpleDMX is compatible with all known Arduinos using Mega8, Mega168 or Mega328 chips running at a standard speed.
@@ -22,13 +21,11 @@ Download [http://tinkerit.googlecode.com/files/!DmxSimple.zip the archive]. Extr
 
 = Function calls =
   ==!DmxSimple.write(channel, value);==
-
     Set DMX channel to value.
     Channel has the range 1 to 128 (512 on all 328 Arduino).
     Value is in the range 0 (off) to 255 (full brightness).
 
   ==!DmxSimple.maxChannel(channel);==
-
     Set the number of DMX channels in the DMX system.
     The DMX system sends out channels in order, starting at 1. So it takes longer to send channels 1-512 than it does to send only channels 1-10. !DmxSimple defaults to sending all channels, but by reducing this you can increase the lamp update rate for even smoother animation.
     Using !DmxSimple.maxChannel(0) turns off the DMX system, so you can use pin 3 as a regular pin. It will revert to a DMX output next time you call !DmxSimple.write() or !DmxSimple.maxChannel(_nonzero_).
