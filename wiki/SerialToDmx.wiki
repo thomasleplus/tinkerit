@@ -52,13 +52,13 @@ The main loop processes serial input character by character. Digits are read to 
 
 The character 'c' sets the `channel` variable. The character 'w' triggers the DmxSimple write.
 
-= Using SerialToDmx with the Arduino Serial Monitor =
+= Using !SerialToDmx with the Arduino Serial Monitor =
 
-Set the serial monitor to 9600. You will then see the SerialToDmx start message.
+Set the serial monitor to 9600. You will then see the !SerialToDmx start message.
 
 You can send commands by entering '*<DMX channel>*c*<channel value>*w' and pressing return (or pushing 'send').
 
-= Using SerialToDmx from Processing =
+= Using !SerialToDmx from Processing =
 
 If you have myPort set up to talk to Arduino at 9600 baud, this function will give you full DMX control within Processing.
 {{{
