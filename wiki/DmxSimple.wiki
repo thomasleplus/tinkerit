@@ -1,5 +1,5 @@
 #summary DmxSimple library - Driving DMX from Arduino
-#labels DMX,Arduino
+#labels Arduino,DMX
 http://farm4.static.flickr.com/3360/3190705653_6c64cd4922_m.jpg
 
 This library gives you a simple way to drive DMX from Arduino. DMX output is on digital pin 3, which is compatible with the Tinker.it! DMX shield.
@@ -7,7 +7,7 @@ This library gives you a simple way to drive DMX from Arduino. DMX output is on 
 !DmxSimple handles all communication with the DMX bus, automatically transmitting data packets at frequent intervals.
 
 = Compatibility =
-SimpleDMX is compatible with all known Arduinos using Mega8, Mega168 or Mega328 chips running at a standard speed.
+!DmxSimple is compatible with all known Arduinos using Mega8, Mega168 or Mega328 chips running at a standard speed.
 The following Arduinos are recommended, as they support both !DmxSimple and the Tinker.it! DMX shield:
   Arduino Duemilanove 328, Arduino Duemilanove, Arduino Diecimila, Arduino Bluetooth, Arduino Pro (5V version only), Arduino NG, Arduino Serial.
 
