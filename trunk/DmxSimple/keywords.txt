@@ -12,8 +12,8 @@ DmxSimple	KEYWORD1
 # Methods and Functions (KEYWORD2)
 #######################################
 
-begin           KEYWORD2
 write           KEYWORD2
+maxChannel      KEYWORD2
 
 #######################################
 # Constants (LITERAL1)

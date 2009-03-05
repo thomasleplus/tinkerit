@@ -1,6 +1,6 @@
 /*
 DmxSimple.h - DMX simple library
-Copyright (c) 2008 Peter Knight, Tinker.it  All right reserved.
+Copyright (c) 2008 Peter Knight, Tinker.it! All right reserved.
 */
 
 #ifndef DmxSimple_h
@@ -11,7 +11,7 @@ Copyright (c) 2008 Peter Knight, Tinker.it  All right reserved.
 class DmxSimpleClass
 {
   public:
-    void begin();
+    void maxChannel(int);
     void write(int, uint8_t);
 };
 extern DmxSimpleClass DmxSimple;
