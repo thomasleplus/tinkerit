@@ -8,58 +8,33 @@ DmxSimple handles all communication with the DMX bus for you, sending out data p
 
 
 = Compatibility =
-SimpleDMX is compatible with all 16MHz Arduinos using Mega168 chips. 
-|| *Arduino Board* || *DmxSimple support* || *Tinker.it! DMX Shield support* ||
-|| Duemilanove || Yes || Yes ||
-|| Diecimila || Yes || Yes ||
-|| Bluetooth / BT || Yes || Yes ||
-|| Pro || 16MHz version || 5V only ||
-|| NG || Mega168 only || Yes ||
-|| Serial (with 16MHz crystal) || No || Yes ||
-|| Nano || Yes || No ||
-|| Mini || Yes || No ||
-|| Pro Mini || 16MHz only || No ||
-|| Bare Bones Board || Yes || No ||
-|| RBBB || Yes || No ||
-|| Lilypad || No || No ||
-|| Funnel I/O || No || No ||
-|| Skinny || No || No ||
+SimpleDMX is compatible with all known Arduinos using Mega8, Mega168 or Mega328 chips running at a standard speed.
+The following Arduinos are recommended, as they support both DmxSimple and the Tinker.it! DMX shield:
+  Arduino Duemilanove 328, Arduino Duemilanove, Arduino Diecimila, Arduino Bluetooth, Arduino Pro (5V version only), Arduino NG, Arduino Serial.
 
 = Installation =
 
 Download [http://tinkerit.googlecode.com/files/DmxSimple.zip the archive]. Extract to (arduino install)/hardware/libraries/DmxSimple . Restart Arduino so it recognises the library.
 
 = Example code =
-{{{
-#include <DmxInterrupt.h>  // These lines are inserted by
-#include <DmxSimple.h>     // Import Library > DmxSimple
-
-void setup() {
-  DmxSimple.begin();       // Set up DMX system
-}
-
-void loop() {
-  int a;
-  for (a=0; a<=255; a++) {
-    DmxSimple.write(1, a); // Set DMX channel 1 to new value
-    delay(10);             // Wait 10ms
-  }
-}
-}}}
-This fades DMX channel 1 from 0 to 255.
+  * [FadeUp]
+  * [SerialToDmx]
 
 = Function calls =
-  {{{DmxSimple.begin();}}}
+  ==DmxSimple.write(channel, value);==
 
-  Set up the DMX system. This must be called before DMX will work.
+    Set DMX channel to value.
+    Channel has the range 1 to 128 (512 on all 328 Arduino).
+    Value is in the range 0 (off) to 255 (full brightness).
 
-  {{{DmxSimple.write(channel, value);}}}
+  ==DmxSimple.maxChannel(channel);==
 
-  Set DMX channel to value.
-  Channel has the range 1 to 128 (DMX channels above 128 are not supported).
-  Value is in the range 0 (off) to 255 (full brightness).
+    Set the number of DMX channels in the DMX system.
+    The DMX system sends out channels in order, starting at 1. So it takes longer to send channels 1-512 than it does to send only channels 1-10. DmxSimple defaults to sending all channels, but by reducing this you can increase the lamp update rate for even smoother animation.
+    Using DmxSimple.maxChannel(0) turns off the DMX system, so you can use pin 3 as a regular pin. It will revert to a DMX output next time you call DmxSimple.write() or DmxSimple.maxChannel(_nonzero_).
 
 = Library limitations =
-  * Timer 1 is used. This breaks analogWrite on pins 9 and 10. Pins 5, 6 and 11 are still available for PWM output.
-  * A significant amount of time is spent with interrupts off. Avoid using the serial port for high speed communication, as the receiver may miss some characters.
-  * Pin 3 is permanently in use for DMX transmission.
+  Timer 2 is used.
+  A significant amount of time is spent with interrupts off. Avoid using the serial port at speeds above 19200 (16MHz Arduino) or 9600 (8MHz Arduino).
+  Due to RAM constraints, only 128 channels are supported on 168 or Mega8 Arduinos. Arduinos with processor sockets can easily be upgraded to a 328 to control all 512 channels.
+  Pin 3 is used for DMX transmission.
