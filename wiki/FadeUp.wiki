@@ -11,7 +11,6 @@ A simple example showing how to use DmxSimple on Arduino.
 #include <DmxSimple.h>
 
 void setup() {
-  DmxSimple.maxChannel(4); // Talking to a four channel receiver, so send all four channels.
 }
 
 void loop() {
