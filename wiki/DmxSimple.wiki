@@ -14,7 +14,7 @@ The following Arduinos are recommended, as they support both !DmxSimple and the 
 
 = Installation =
 
-Download [http://tinkerit.googlecode.com/files/DmxSimple.zip the archive]. Extract to (arduino install)/hardware/libraries/DmxSimple . Restart Arduino so it recognises the library.
+Download [http://tinkerit.googlecode.com/files/!DmxSimple.zip the archive]. Extract to (arduino install)/hardware/libraries/!DmxSimple . Restart Arduino so it recognises the library.
 
 = Example code =
   * [FadeUp]
@@ -30,8 +30,8 @@ Download [http://tinkerit.googlecode.com/files/DmxSimple.zip the archive]. Extra
   ==!DmxSimple.maxChannel(channel);==
 
     Set the number of DMX channels in the DMX system.
-    The DMX system sends out channels in order, starting at 1. So it takes longer to send channels 1-512 than it does to send only channels 1-10. DmxSimple defaults to sending all channels, but by reducing this you can increase the lamp update rate for even smoother animation.
-    Using DmxSimple.maxChannel(0) turns off the DMX system, so you can use pin 3 as a regular pin. It will revert to a DMX output next time you call DmxSimple.write() or DmxSimple.maxChannel(_nonzero_).
+    The DMX system sends out channels in order, starting at 1. So it takes longer to send channels 1-512 than it does to send only channels 1-10. !DmxSimple defaults to sending all channels, but by reducing this you can increase the lamp update rate for even smoother animation.
+    Using !DmxSimple.maxChannel(0) turns off the DMX system, so you can use pin 3 as a regular pin. It will revert to a DMX output next time you call !DmxSimple.write() or !DmxSimple.maxChannel(_nonzero_).
 
 = Library limitations =
   Timer 2 is used.
