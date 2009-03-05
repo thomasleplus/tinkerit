@@ -1,6 +1,9 @@
 #summary DmxSimple library - Driving DMX from Arduino
 #labels Arduino,DMX,DmxSimple
-http://farm4.static.flickr.com/3360/3190705653_6c64cd4922_m.jpg
+http://farm4.static.flickr.com/3562/3331348134_e4ecaa9a95_m.jpg
+
+== [http://www.vimeo.com/3453833 Video walkthrough now available] ==
+
 
 This library gives you a simple way to drive DMX from Arduino. DMX output is on digital pin 3, which is compatible with the [http://tinkerit.myshopify.com/collections/lighting-solutions/products/dmx-shield Tinker.it! DMX shield].
 
