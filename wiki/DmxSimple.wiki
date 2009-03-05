@@ -13,7 +13,7 @@ The following Arduinos are recommended, as they support both !DmxSimple and the 
 
 = Installation =
 
-Download [http://tinkerit.googlecode.com/files/!DmxSimple.zip the archive]. Extract to (arduino install)/hardware/libraries/!DmxSimple . Restart Arduino so it recognises the library.
+Download [http://tinkerit.googlecode.com/files/DmxSimple.zip the archive]. Extract to (arduino install)/hardware/libraries/!DmxSimple . Restart Arduino so it recognises the library.
 
 = Example code =
   * [FadeUp]
