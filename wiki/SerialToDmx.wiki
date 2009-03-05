@@ -1,4 +1,5 @@
 #summary DmxSimple SerialToDmx example
+#labels Arduino,DMX,DmxSimple
 
 = Introduction =
 
