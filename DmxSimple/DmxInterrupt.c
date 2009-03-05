@@ -12,35 +12,57 @@ Copyright (c) 2008 Peter Knight, Tinker.it! All right reserved.
 #define DMX_BIT 3
 #define DMX_DDR DDRD
 
-#if RAMEND <= 0x4FF
-#define DMX_SIZE 128
-#else
-#define DMX_SIZE 512
-#endif
+#define max(a,b) ((a)>(b)?(a):(b))
+#define min(a,b) ((a)<(b)?(a):(b))
 
-static uint8_t DMX_BUFFER[DMX_SIZE];
-static uint16_t DMX_MAX=0;
-static uint8_t DMX_STARTED=0;
+volatile uint8_t dmxBuffer[DMX_SIZE];
+static uint16_t dmxMax = 4;//DMX_SIZE;
+static uint8_t dmxStarted = 0;
+static uint16_t dmxState = 0;
 
-void dmxBegin(int maxChannel)
+/** Initialise the DMX engine
+ * @param maxChannel Highest channel to send
+ */
+void dmxBegin()
 {
+  dmxStarted = 1;
+
   // Set DMX pin to output
   DMX_DDR |= _BV(DMX_BIT);
   
   // Initialise DMX frame interrupt
-  TCCR1A = 0;
-  TCCR1B = _BV(WGM13) | _BV(CS12);
-  ICR1 = F_CPU / 12800;
-  TCNT1 = 0;
+  //
+  // Presume Arduino has already set Timer2 to 64 prescaler,
+  // Phase correct PWM mode
+  // So the overflow triggers every 64*510 clock cycles
+  // Which is 510 DMX bit periods at 16MHz,
+  //          255 DMX bit periods at 8MHz,
+  //          637 DMX bit periods at 20MHz
+
 #if defined(__AVR_ATmega168__) || defined(__AVR_ATmega168P__) || defined(__AVR_ATmega328P__)
-  TIMSK1 = _BV(TOIE1);
+  TIMSK2 |= _BV(TOIE2);
 #elif defined(__AVR_ATmega8__)
-  TIMSK = _BV(TOIE1);
+  TIMSK |= _BV(TOIE2);
 #else
-#warning "DmxSimple does not support this CPU"
+  #warning "DmxSimple does not support this CPU"
 #endif
-  DMX_STARTED = 1;
-  if ((maxChannel > 0) && (maxChannel <= 512)) DMX_MAX = maxChannel;
+
+}
+
+/** Stop the DMX engine
+ * Turns off the DMX interrupt routine
+ */
+void dmxEnd()
+{
+#if defined(__AVR_ATmega168__) || defined(__AVR_ATmega168P__) || defined(__AVR_ATmega328P__)
+  TIMSK2 &= ~_BV(TOIE2);
+#elif defined(__AVR_ATmega8__)
+  TIMSK &= ~_BV(TOIE2);
+#else
+  #warning "DmxSimple does not support this CPU"
+#endif
+  dmxStarted = 0;
+  dmxMax = 0;
 }
 
 void dmxSendByte(volatile uint8_t value)
@@ -48,11 +70,7 @@ void dmxSendByte(volatile uint8_t value)
   uint8_t bitCount, delCount;
   __asm__ volatile (
     "cbi %[outPort],%[outBit]\n"
-    "nop\nnop\nnop\nnop\n"
-  //  "rjmp branch1%=\n"  // Delay 2 t-states (more code efficient than two nops)
-  //"branch1%=:\n"
-  //  "rjmp branch2%=\n" // And another 2. This is to align the start bit to later transitions.
-  //"branch2%=:\n"
+    "nop\n nop\n nop\n nop\n"
     "ldi %[bitCount],11\n" // 11 bit intervals per transmitted byte
   "bitLoop%=:\n"
 #if F_CPU == 8000000
@@ -82,23 +100,54 @@ void dmxSendByte(volatile uint8_t value)
   );
 }
 
-SIGNAL(TIMER1_OVF_vect) {
-  uint8_t i;
-  uint16_t j;
-  DMX_PORT &= ~_BV(DMX_BIT);
-  for (i=0; i<11; i++) _delay_us(8);
-  DMX_PORT |= _BV(DMX_BIT);
-  _delay_us(8); // MAB 8us
-  dmxSendByte(0); // Send start code
-  for (j=0; j<DMX_MAX; j++) dmxSendByte(DMX_BUFFER[j]);
+
+SIGNAL(TIMER2_OVF_vect) {
+  uint16_t bitsLeft = F_CPU / 31372; // DMX Bit periods per timer tick
+  bitsLeft >>=2; // 25% CPU usage
+  while (1) {
+    if (dmxState == 0) {
+      // Next thing to send is reset pulse and start code
+      // which takes 35 bit periods
+      uint8_t i;
+      if (bitsLeft < 35) break;
+      bitsLeft-=35;
+      DMX_PORT &= ~_BV(DMX_BIT);
+      for (i=0; i<11; i++) _delay_us(8);
+      DMX_PORT |= _BV(DMX_BIT);
+      _delay_us(8);
+      dmxSendByte(0);
+    } else {
+      // Now send a channel which takes 11 bit periods
+      if (bitsLeft < 11) break;
+      bitsLeft-=11;
+      dmxSendByte(dmxBuffer[dmxState-1]);
+    }
+    // Successfully completed that stage - move state machine forward
+    dmxState++;
+    if (dmxState > dmxMax) {
+      dmxState = 0; // Send next frame
+      break;
+    }
+  }
 }
 
 void dmxWrite(int channel, uint8_t value) {
-  if (!DMX_STARTED) dmxBegin(0);
+  if (!dmxStarted) dmxBegin(dmxMax);
   if ((channel > 0) && (channel <= DMX_SIZE)) {
     if (value<0) value=0;
     if (value>255) value=255;
-    DMX_MAX = (channel > DMX_MAX) ? channel : DMX_MAX;
-    DMX_BUFFER[channel-1] = value;
+    dmxMax = max(channel, dmxMax);
+    dmxBuffer[channel-1] = value;
+  }
+}
+
+void dmxMaxChannel(int channel) {
+  if (channel <=0) {
+    // End DMX transmission
+    dmxEnd();
+    dmxMax = 0;
+  } else {
+    dmxMax = min(channel, DMX_SIZE);
+    if (!dmxStarted) dmxBegin();
   }
 }
