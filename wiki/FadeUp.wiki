@@ -1,4 +1,5 @@
 #summary DmxSimple FadeUp example
+#labels Arduino,DMX,DmxSimple
 
 = Introduction =
 
