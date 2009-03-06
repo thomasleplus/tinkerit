@@ -55,7 +55,7 @@ newlines_to_nils=true
 
 this instructs the proxy to replace the newlines coming from the serial port with a byte of value 0. This feature is very important for ActionScript 2.0 because the only type of network connection available (XMLSocket) won't process any data unless it's terminated by a byte 0. Most devices use the newline code to terminate a line of text so the XMLSocket , without this feature, will never process any data.
 
-The configuration can also be edited using TinkerProxy Configurator
+The configuration can also be edited using [http://tinkerit.googlecode.com/files/TPConfig.zip TinkerProxy Configurator]
 
 = Running =
 
@@ -67,5 +67,5 @@ We have put together two simple examples on how to use TinkerProxy, one for AS2 
 
 Please note that these are still quite rough at the moment
 
-  * ActionScript 2.0 Example
-  * ActionScript 3.0 Example 
+  * [http://tinkerit.googlecode.com/files/example_as2.zip ActionScript 2.0 Example]
+  * [http://tinkerit.googlecode.com/files/example_as3.zip ActionScript 3.0 Example] 
