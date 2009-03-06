@@ -8,7 +8,7 @@ TinkerProxy solves the problem by connecting on one side to a serial port and on
 
 = Setup =
 
-TinkerProxy is based on one single executable file and a corresponding configuration file.
+[http://tinkerit.googlecode.com/files/tinkerproxy-2_0.zip TinkerProxy] is based on one single executable file and a corresponding configuration file.
 
 Place the executable file serproxy.exe and serproxy.cfg in a suitable folder.
 
