@@ -2,9 +2,9 @@
 
 = Introduction =
 
-TinkerProxy is software that allows flash application to access serial ports on a computer. Since Flash applications are running inside a sandbox in order to reduce any security issue with software downloaded from the Internet, they are barred from accessing hardware devices like serial ports. Developers of interactive installation, on the other hand, have the need to access serial ports in order to communicate with interface boards and sensors.
+!TinkerProxy is software that allows flash application to access serial ports on a computer. Since Flash applications are running inside a sandbox in order to reduce any security issue with software downloaded from the Internet, they are barred from accessing hardware devices like serial ports. Developers of interactive installation, on the other hand, have the need to access serial ports in order to communicate with interface boards and sensors.
 
-TinkerProxy solves the problem by connecting on one side to a serial port and on the other side acting as a TCP/IP server. Since Flash applications are allowed to open network connections they can communicate with TinkerProxy and have access to the required serial port.
+!TinkerProxy solves the problem by connecting on one side to a serial port and on the other side acting as a TCP/IP server. Since Flash applications are allowed to open network connections they can communicate with TinkerProxy and have access to the required serial port.
 
 = Setup =
 
