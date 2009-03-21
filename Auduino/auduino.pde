@@ -2,16 +2,17 @@
 //
 // by Peter Knight, Tinker.it http://tinker.it
 //
-// Analog in 0: Grain repetition frequency
-// Analog in 1: Grain 1 pitch
+// Analog in 0: Grain 1 pitch
+// Analog in 1: Grain 2 decay
 // Analog in 2: Grain 1 decay
 // Analog in 3: Grain 2 pitch
-// Analog in 4: Grain 2 decay
+// Analog in 4: Grain repetition frequency
 //
-// Digital 3: Audio out
+// Digital 3: Audio out (Digital 11 on ATmega8)
 //
 // Changelog:
 // 19 Nov 2008: Added support for ATmega8 boards
+// 21 Mar 2009: Added support for ATmega328 boards
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
@@ -40,14 +41,14 @@ uint8_t grain2Decay;
 
 // Changing these will also requires rewriting audioOn()
 
-#if defined(__AVR_ATmega168__)
-// For modern ATmega168 boards, output is on pin 3
-#define PWM_PIN       3
-#define PWM_VALUE     OCR2B
-#else
+#if defined(__AVR_ATmega8__)
 // On old ATmega8 boards, output is on pin 11
 #define PWM_PIN       11
 #define PWM_VALUE     OCR2
+#else
+// For modern ATmega168 boards, output is on pin 3
+#define PWM_PIN       3
+#define PWM_VALUE     OCR2B
 #endif
 #define PWM_INTERRUPT SIG_OVERFLOW2
 
@@ -94,15 +95,15 @@ uint16_t mapPentatonic(uint16_t input) {
 
 
 void audioOn() {
-#if defined(__AVR_ATmega168__)
+#if defined(__AVR_ATmega8__)
+  // ATmega8 has different registers
+  TCCR2 = _BV(WGM20) | _BV(COM21) | _BV(CS20);
+  TIMSK = _BV(TOIE2);
+#else
   // Set up PWM to 31.25kHz, phase accurate
   TCCR2A = _BV(COM2B1) | _BV(WGM20);
   TCCR2B = _BV(CS20);
   TIMSK2 = _BV(TOIE2);
-#else
-  // ATmega8 has different registers
-  TCCR2 = _BV(WGM20) | _BV(COM21) | _BV(CS20);
-  TIMSK = _BV(TOIE2);
 #endif
 }
 
