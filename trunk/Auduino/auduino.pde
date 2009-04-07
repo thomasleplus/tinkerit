@@ -2,6 +2,9 @@
 //
 // by Peter Knight, Tinker.it http://tinker.it
 //
+// Help:      http://code.google.com/p/tinkerit/wiki/Auduino
+// More help: http://groups.google.com/group/auduino
+//
 // Analog in 0: Grain 1 pitch
 // Analog in 1: Grain 2 decay
 // Analog in 2: Grain 1 decay
