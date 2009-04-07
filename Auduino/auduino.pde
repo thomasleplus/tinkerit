@@ -13,6 +13,7 @@
 // Changelog:
 // 19 Nov 2008: Added support for ATmega8 boards
 // 21 Mar 2009: Added support for ATmega328 boards
+// 7 Apr 2009: Fixed interrupt vector for ATmega328 boards
 
 #include <avr/io.h>
 #include <avr/interrupt.h>
@@ -50,7 +51,7 @@ uint8_t grain2Decay;
 #define PWM_PIN       3
 #define PWM_VALUE     OCR2B
 #endif
-#define PWM_INTERRUPT SIG_OVERFLOW2
+#define PWM_INTERRUPT TIMER2_OVF_vect
 
 // Smooth logarithmic mapping
 //
