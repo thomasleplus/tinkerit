@@ -4,7 +4,7 @@ http://farm4.static.flickr.com/3248/3025517948_f238f20ac2_m.jpg
 
 = Introduction =
 
-The Auduino is a sound synthesiser based on the [http://arduino.cc Arduino platform]. The prototype uses the Arduino Diecimila, although any Arduino running at 16MHz will work fine. It uses granular synthesis techniques to generate a distinctive filter-sweep sound that had much more character than boring square waves.
+The Auduino is a sound synthesiser based on the [http://arduino.cc Arduino platform]. It works on all ATmega8, ATmega168 and ATmega328P Arduinos running at 16MHz. It uses granular synthesis techniques to generate a distinctive filter-sweep sound that had much more character than boring square waves.
 
 = Have a look and a listen =
 
@@ -32,6 +32,9 @@ Auduino uses 5 controls. You can use anything that generates a 0-5V analogue sig
 The audio comes out of Digital pin 3 (or pin 11 on ATmega8 Arduinos). The prototype uses a 1/4" jack socket, with the tip connected to pin 3 (or 11 on ATmega8's) and the shield connected to GND. Plug the other end into an audio amplifier, and you're good to go.
 
 The Arduino can drive a small piezo, speaker or headphones directly. Strictly speaking it outputs at 5V rather than the 1V line level, but most amplifiers don't seem to mind.
+
+= Auduino community =
+We now have a group on [http://groups.google.com/group/auduino Google Groups]. Show off your hacks, or get help with your Auduino projects.
 
 = Auduino controller hacks =
 The Auduino can take any analogue signal and make it audible. Add a [http://www.rapidonline.com/Electronic-Components/Optoelectronics/Photodetectors/Miniature-light-dependent-resistor/29399/kw/light%20dependent%20resistor Light Dependent Resistor], you have an instant theremin. Add a [http://www.sparkfun.com/commerce/product_info.php?products_id=8607 linear softpot], instant keyboard or ribbon controller. The [http://www.arduino.cc/playground/ Arduino Playground] is a great place to get new ideas.
