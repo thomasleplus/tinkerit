@@ -4,7 +4,7 @@ http://farm4.static.flickr.com/3248/3025517948_f238f20ac2_m.jpg
 
 = Introduction =
 
-The Auduino is a sound synthesiser based on the [http://arduino.cc Arduino platform]. It works on all ATmega8, ATmega168 and ATmega328P Arduinos running at 16MHz. It uses granular synthesis techniques to generate a distinctive filter-sweep sound that had much more character than boring square waves.
+The Auduino is a sound synthesiser based on the [http://arduino.cc Arduino platform]. It works on all Arduinos running at 16MHz - everything from the original Arduino serial to the Arduino Mega. It uses granular synthesis techniques to generate a distinctive filter-sweep sound that had much more character than boring square waves.
 
 = Have a look and a listen =
 
