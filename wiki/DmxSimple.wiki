@@ -10,13 +10,13 @@ This library gives you a simple way to drive DMX from Arduino. DMX output is on 
 !DmxSimple handles all communication with the DMX bus, automatically transmitting data packets at frequent intervals.
 
 = Compatibility =
-!DmxSimple is compatible with all known Arduinos using Mega8, Mega168 or Mega328 chips running at a standard speed.
+!DmxSimple is compatible with all known Arduinos including the Mega.
 The following Arduinos are recommended, as they support both !DmxSimple and the Tinker.it! DMX shield:
-  Arduino Duemilanove 328, Arduino Duemilanove, Arduino Diecimila, Arduino Bluetooth, Arduino Pro (5V version only), Arduino NG, Arduino Serial.
+  Arduino Mega, Arduino Duemilanove 328, Arduino Duemilanove, Arduino Diecimila, Arduino Bluetooth, Arduino Pro (5V version only), Arduino NG, Arduino Serial.
 
 = Installation =
 
-Download [http://tinkerit.googlecode.com/files/DmxSimple.zip the archive]. Extract to (arduino install)/hardware/libraries/!DmxSimple . Restart Arduino so it recognises the library.
+Download [http://tinkerit.googlecode.com/files/DmxSimple_v2.zip the archive]. Extract to (arduino install)/hardware/libraries/!DmxSimple . Restart Arduino so it recognises the library.
 
 = Example code =
   * [FadeUp]
@@ -38,3 +38,8 @@ Download [http://tinkerit.googlecode.com/files/DmxSimple.zip the archive]. Extra
   A significant amount of time is spent with interrupts off. Avoid using the serial port at speeds above 19200 (16MHz Arduino) or 9600 (8MHz Arduino).
   Due to RAM constraints, only 128 channels are supported on 168 or Mega8 Arduinos. Arduinos with processor sockets can easily be upgraded to a 328 to control all 512 channels.
   Pin 3 is used for DMX transmission.
+
+= Upgrade notes =
+  Version 1 of DmxSimple used a file "DmxInterrupt.h". This has been removed.
+  To upgrade old sketches, remove the #include "DmxInterrupt.h" line.
+  When upgrading the library, delete all the old files before copying the contents of hte new archive.
