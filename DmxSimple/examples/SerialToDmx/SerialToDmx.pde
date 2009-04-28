@@ -1,4 +1,3 @@
-#include <DmxInterrupt.h>
 #include <DmxSimple.h>
 
 // After installing, switch to Serial Monitor and set the baud rate to 9600.
