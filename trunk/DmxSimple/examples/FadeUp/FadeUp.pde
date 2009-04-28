@@ -1,4 +1,3 @@
-#include <DmxInterrupt.h>
 #include <DmxSimple.h>
 
 void setup() {
