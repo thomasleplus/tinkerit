@@ -7,7 +7,6 @@ A simple example showing how to use DmxSimple on Arduino.
 
 = The code =
 {{{
-#include <DmxInterrupt.h>
 #include <DmxSimple.h>
 
 void setup() {
