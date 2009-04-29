@@ -42,4 +42,4 @@ Download [http://tinkerit.googlecode.com/files/DmxSimple_v2.zip the archive]. Ex
 = Upgrade notes =
   Version 1 of DmxSimple used a file "DmxInterrupt.h". This has been removed.
   To upgrade old sketches, remove the #include "DmxInterrupt.h" line.
-  When upgrading the library, delete all the old files before copying the contents of hte new archive.
+  When upgrading the library, delete all the old files before copying the contents of the new archive.
