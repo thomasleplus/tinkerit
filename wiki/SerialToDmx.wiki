@@ -7,7 +7,6 @@ A example showing how to control DmxSimple over a serial port.
 
 = The code =
 {{{
-#include <DmxInterrupt.h>
 #include <DmxSimple.h>
 
 // After installing, switch to Serial Monitor and set the baud rate to 9600.
