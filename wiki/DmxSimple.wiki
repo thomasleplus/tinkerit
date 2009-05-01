@@ -33,7 +33,7 @@ Download [http://tinkerit.googlecode.com/files/DmxSimple_v2.zip the archive]. Ex
     The DMX system sends out channels in order, starting at 1. So it takes longer to send channels 1-512 than it does to send only channels 1-10. !DmxSimple defaults to sending all channels, but by reducing this you can increase the lamp update rate for even smoother animation.
     Using !DmxSimple.maxChannel(0) turns off the DMX system, so you can use pin 3 as a regular pin. It will revert to a DMX output next time you call !DmxSimple.write() or !DmxSimple.maxChannel(_nonzero_).
 
-= DmxSimple community =
+= !DmxSimple community =
 We now have a group on [http://groups.google.com/group/dmxsimple Google Groups]. Get assistance starting with DMX, or show off your installations.
 
 = Library limitations =
