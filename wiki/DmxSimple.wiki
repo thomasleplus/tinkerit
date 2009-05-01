@@ -20,7 +20,7 @@ This library gives you a simple way to drive DMX from Arduino. DMX output is on 
 = Example code =
   * [FadeUp]
   * [SerialToDmx]
-  The example code is also built into the library. Open Arduino, and look under File > Sketchbook > Examples > Library-DmxSimple.
+  The example code is also built into the library. Open Arduino, and look under File > Sketchbook > Examples > Library-!DmxSimple.
 
 = Function calls =
   ==!DmxSimple.write(channel, value);==
