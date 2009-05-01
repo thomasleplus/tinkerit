@@ -4,19 +4,18 @@ http://farm4.static.flickr.com/3562/3331348134_e4ecaa9a95_m.jpg
 
 == [http://www.vimeo.com/3453833 Video walkthrough now available] ==
 
-
 This library gives you a simple way to drive DMX from Arduino. DMX output is on digital pin 3, which is compatible with the [http://tinkerit.myshopify.com/collections/lighting-solutions/products/dmx-shield Tinker.it! DMX shield].
 
 !DmxSimple handles all communication with the DMX bus, automatically transmitting data packets at frequent intervals.
 
 = Compatibility =
-!DmxSimple is compatible with all known Arduinos including the Mega.
-The following Arduinos are recommended, as they support both !DmxSimple and the Tinker.it! DMX shield:
+  !DmxSimple is compatible with all known Arduinos including the Mega.
+  The following Arduinos are recommended, as they support both !DmxSimple and the Tinker.it! DMX shield:
   Arduino Mega, Arduino Duemilanove 328, Arduino Duemilanove, Arduino Diecimila, Arduino Bluetooth, Arduino Pro (5V version only), Arduino NG, Arduino Serial.
 
 = Installation =
 
-Download [http://tinkerit.googlecode.com/files/DmxSimple_v2.zip the archive]. Extract to (arduino install)/hardware/libraries/!DmxSimple . Restart Arduino so it recognises the library.
+  Download [http://tinkerit.googlecode.com/files/DmxSimple_v2.zip the archive]. Extract to (arduino install)/hardware/libraries/!DmxSimple . Restart Arduino so it recognises the library.
 
 = Example code =
   * [FadeUp]
@@ -34,7 +33,7 @@ Download [http://tinkerit.googlecode.com/files/DmxSimple_v2.zip the archive]. Ex
     Using !DmxSimple.maxChannel(0) turns off the DMX system, so you can use pin 3 as a regular pin. It will revert to a DMX output next time you call !DmxSimple.write() or !DmxSimple.maxChannel(_nonzero_).
 
 = !DmxSimple community =
-We now have a group on [http://groups.google.com/group/dmxsimple Google Groups]. Get assistance starting with DMX, or show off your installations.
+  We now have a group on [http://groups.google.com/group/dmxsimple Google Groups]. Get assistance starting with DMX, or show off your installations.
 
 = Library limitations =
   Timer 2 is used.
