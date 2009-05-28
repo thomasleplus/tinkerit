@@ -41,9 +41,26 @@ void dmxSendByte(volatile uint8_t);
 void dmxWrite(int,uint8_t);
 void dmxMaxChannel(int);
 
+/* TIMER2 has a different register mapping on the ATmega8.
+ * The modern chips (168, 328P, 1280) use identical mappings.
+ */
+#if defined(__AVR_ATmega168__) || defined(__AVR_ATmega168P__) || defined(__AVR_ATmega328P__) || defined(__AVR_ATmega1280__)
+#define TIMER2_INTERRUPT_ENABLE() TIMSK2 |= _BV(TOIE2)
+#define TIMER2_INTERRUPT_DISABLE() TIMSK2 &= ~_BV(TOIE2)
+#elif defined(__AVR_ATmega8__)
+#define TIMER2_INTERRUPT_ENABLE() TIMSK |= _BV(TOIE2)
+#define TIMER2_INTERRUPT_DISABLE() TIMSK &= ~_BV(TOIE2)
+#else
+#define TIMER2_INTERRUPT_ENABLE()
+#define TIMER2_INTERRUPT_DISABLE()
+/* Produce an appropriate message to aid error reporting on nonstandard
+ * platforms such as Teensy.
+ */
+#warning "DmxSimple does not support this CPU"
+#endif
+
 
 /** Initialise the DMX engine
- * @param maxChannel Highest channel to send
  */
 void dmxBegin()
 {
@@ -60,14 +77,7 @@ void dmxBegin()
   // Which is 510 DMX bit periods at 16MHz,
   //          255 DMX bit periods at 8MHz,
   //          637 DMX bit periods at 20MHz
-
-#if defined(__AVR_ATmega168__) || defined(__AVR_ATmega168P__) || defined(__AVR_ATmega328P__) || defined(__AVR_ATmega1280__)
-  TIMSK2 |= _BV(TOIE2);
-#elif defined(__AVR_ATmega8__)
-  TIMSK |= _BV(TOIE2);
-#else
-  #warning "DmxSimple does not support this CPU"
-#endif
+  TIMER2_INTERRUPT_ENABLE();
 }
 
 /** Stop the DMX engine
@@ -75,13 +85,7 @@ void dmxBegin()
  */
 void dmxEnd()
 {
-#if defined(__AVR_ATmega168__) || defined(__AVR_ATmega168P__) || defined(__AVR_ATmega328P__) || defined(__AVR_ATmega1280__)
-  TIMSK2 &= ~_BV(TOIE2);
-#elif defined(__AVR_ATmega8__)
-  TIMSK &= ~_BV(TOIE2);
-#else
-  #warning "DmxSimple does not support this CPU"
-#endif
+  TIMER2_INTERRUPT_DISABLE();
   dmxStarted = 0;
   dmxMax = 0;
 }
@@ -94,19 +98,31 @@ void dmxSendByte(volatile uint8_t value)
 {
   uint8_t bitCount, delCount;
   __asm__ volatile (
+    "cli\n" // Highly time critical - interrupts off.
     "cbi %[outPort],%[outBit]\n"
     "nop\n nop\n nop\n nop\n"
     "ldi %[bitCount],11\n" // 11 bit intervals per transmitted byte
-  "bitLoop%=:\n"
+  "bitLoop%=:\n"\
+    /* The following are careful timing tweaks to get exact 4µs cycle times
+     * at a specific clock rate. These are checked by running the code in the
+     * AVR Studio simulator, and testing real hardware using a logic analyser.
+     * Tweakers, tread with caution.
+     */
 #if F_CPU == 8000000
+    /* RC clocked arduinos such as Lilypad */
     "nop\n"
     "ldi %[delCount],7\n" // 7 loops to hit exact 4us bit time on 8MHz clock
 #elif F_CPU == 16000000
+    /* Standard Arduino clock rate */
     "ldi %[delCount],18\n" // 18 loops to hit exact 4us bit time on 16MHz clock
 #elif F_CPU == 20000000
+    /* Used by Liquidware touchshield, also maximum chip clock rate */
     "nop\n"
     "ldi %[delCount],23\n" // 23 loops to hit exact 4us bit time on 20MHz clock
 #else
+    /* It might possibly be worth covering 12 and 15MHz at some stage.
+     * Error out for strange frequencies.
+     */
     #warning "DmxSimple does not support this clock speed"
 #endif
   "delLoop%=:\n"
@@ -120,6 +136,7 @@ void dmxSendByte(volatile uint8_t value)
     "ori %[value],128\n" // After sending out 8 data bits, send out high state
     "dec %[bitCount]\n"
     "brne bitLoop%=\n"
+    "sei\n" // End of time critical section - interrupts back on.
     :[bitCount] "=&d" (bitCount), [delCount] "=&d" (delCount)
     :[outPort] "I" (_SFR_IO_ADDR(DMX_PORT)), [outBit] "I" (DMX_BIT), [value] "r" (value)
   );
@@ -130,9 +147,18 @@ void dmxSendByte(volatile uint8_t value)
  * 
  * The full DMX transmission takes too long, but some aspects of DMX timing
  * are flexible. This routine chunks the DMX signal, only sending as much as
- * it's time budget will alow.
+ * it's time budget will allow.
+ *
+ * This interrupt routine runs with interrupts enabled most of the time.
+ * With extremely heavy interrupt loads, it could conceivably interrupt its
+ * own routine, so the TIMER2 interrupt is disabled for the duration of
+ * the service routine.
  */
-ISR(TIMER2_OVF_vect) {
+ISR(TIMER2_OVF_vect,ISR_NOBLOCK) {
+
+  // Prevent this interrupt running recursively
+  TIMER2_INTERRUPT_DISABLE();
+
   uint16_t bitsLeft = F_CPU / 31372; // DMX Bit periods per timer tick
   bitsLeft >>=2; // 25% CPU usage
   while (1) {
@@ -160,6 +186,9 @@ ISR(TIMER2_OVF_vect) {
       break;
     }
   }
+  
+  // Enable interrupts for the next transmission chunk
+  TIMER2_INTERRUPT_ENABLE();
 }
 
 void dmxWrite(int channel, uint8_t value) {
