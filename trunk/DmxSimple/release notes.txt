@@ -1,0 +1,4 @@
+v2.1:
+  Release notes file added. (For older revisions, see SVN log on Google Code)
+  Interrupts are reenabled even during the routine.
+  Therefore, interrupt heavy tasks such as receiving at 115200 baud are now possible without losing data.
