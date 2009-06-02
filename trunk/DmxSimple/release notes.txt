@@ -1,3 +1,7 @@
+v2.2:
+  DmxSimple.usePin() function added. Output pin can be changed at will.
+  Timing loops improved to support more clock frequencies.
+
 v2.1:
   Release notes file added. (For older revisions, see SVN log on Google Code)
   Interrupts are reenabled even during the routine.

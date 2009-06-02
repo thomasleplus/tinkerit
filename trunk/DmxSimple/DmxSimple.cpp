@@ -6,27 +6,10 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
+#include "pins_arduino.h"
 
+#include "wiring.h"
 #include "DmxSimple.h"
-
-/** DmxSimple access the output pin directly for speed.
- * The output port, data direction register and bit are specified here.
- * This is board specific.
- */
-#if defined(__AVR_ATmega1280__)
-#define DMX_PORT PORTE
-#define DMX_BIT 5
-#define DMX_DDR DDRE
-#else
-#define DMX_PORT PORTD
-#define DMX_BIT 3
-#define DMX_DDR DDRD
-#endif
-
-/** Comparative math macros
- */
-#define max(a,b) ((a)>(b)?(a):(b))
-#define min(a,b) ((a)<(b)?(a):(b))
 
 /** dmxBuffer contains a software copy of all the DMX channels.
   */
@@ -34,6 +17,10 @@ volatile uint8_t dmxBuffer[DMX_SIZE];
 static uint16_t dmxMax = 16; /* Default to sending the first 16 channels */
 static uint8_t dmxStarted = 0;
 static uint16_t dmxState = 0;
+
+static volatile uint8_t *dmxPort;
+static uint8_t dmxBit = 0;
+static uint8_t dmxPin = 3; // Defaults to output on pin 3 to support Tinker.it! DMX shield
 
 void dmxBegin();
 void dmxEnd();
@@ -66,9 +53,13 @@ void dmxBegin()
 {
   dmxStarted = 1;
 
+  // Set up port pointers for interrupt routine
+  dmxPort = portOutputRegister(digitalPinToPort(dmxPin));
+  dmxBit = digitalPinToBitMask(dmxPin);
+
   // Set DMX pin to output
-  DMX_DDR |= _BV(DMX_BIT);
-  
+  pinMode(dmxPin,OUTPUT);
+
   // Initialise DMX frame interrupt
   //
   // Presume Arduino has already set Timer2 to 64 prescaler,
@@ -91,54 +82,47 @@ void dmxEnd()
 }
 
 /** Transmit a complete DMX byte
- * Uses bit-banging to transmit byte without using a serial port.
- * Highly time critical code - tweak at your peril.
+ * We have no serial port for DMX, so everything is timed using an exact
+ * number of instruction cycles.
+ *
+ * Really suggest you don't touch this function.
  */
 void dmxSendByte(volatile uint8_t value)
 {
   uint8_t bitCount, delCount;
   __asm__ volatile (
-    "cli\n" // Highly time critical - interrupts off.
-    "cbi %[outPort],%[outBit]\n"
-    "nop\n nop\n nop\n nop\n"
+    "cli\n"
+    "ld __tmp_reg__,%a[dmxPort]\n"
+    "and __tmp_reg__,%[outMask]\n"
+    "st %a[dmxPort],__tmp_reg__\n"
     "ldi %[bitCount],11\n" // 11 bit intervals per transmitted byte
+    "rjmp bitLoop%=\n"     // Delay 2 clock cycles. 
   "bitLoop%=:\n"\
-    /* The following are careful timing tweaks to get exact 4µs cycle times
-     * at a specific clock rate. These are checked by running the code in the
-     * AVR Studio simulator, and testing real hardware using a logic analyser.
-     * Tweakers, tread with caution.
-     */
-#if F_CPU == 8000000
-    /* RC clocked arduinos such as Lilypad */
-    "nop\n"
-    "ldi %[delCount],7\n" // 7 loops to hit exact 4us bit time on 8MHz clock
-#elif F_CPU == 16000000
-    /* Standard Arduino clock rate */
-    "ldi %[delCount],18\n" // 18 loops to hit exact 4us bit time on 16MHz clock
-#elif F_CPU == 20000000
-    /* Used by Liquidware touchshield, also maximum chip clock rate */
-    "nop\n"
-    "ldi %[delCount],23\n" // 23 loops to hit exact 4us bit time on 20MHz clock
-#else
-    /* It might possibly be worth covering 12 and 15MHz at some stage.
-     * Error out for strange frequencies.
-     */
-    #warning "DmxSimple does not support this clock speed"
-#endif
+    "ldi %[delCount],%[delCountVal]\n"
   "delLoop%=:\n"
+    "nop\n"
     "dec %[delCount]\n"
     "brne delLoop%=\n"
-    "sbrc %[value],0\n"
-    "sbi %[outPort],%[outBit]\n"
-    "sbrs %[value],0\n"
-    "cbi %[outPort],%[outBit]\n"
-    "lsr %[value]\n"
-    "ori %[value],128\n" // After sending out 8 data bits, send out high state
+    "ld __tmp_reg__,%a[dmxPort]\n"
+    "and __tmp_reg__,%[outMask]\n"
+    "sec\n"
+    "ror %[value]\n"
+    "brcc sendzero%=\n"
+    "or __tmp_reg__,%[outBit]\n"
+  "sendzero%=:\n"
+    "st %a[dmxPort],__tmp_reg__\n"
     "dec %[bitCount]\n"
     "brne bitLoop%=\n"
-    "sei\n" // End of time critical section - interrupts back on.
-    :[bitCount] "=&d" (bitCount), [delCount] "=&d" (delCount)
-    :[outPort] "I" (_SFR_IO_ADDR(DMX_PORT)), [outBit] "I" (DMX_BIT), [value] "r" (value)
+    "sei\n"
+    :
+      [bitCount] "=&d" (bitCount),
+      [delCount] "=&d" (delCount)
+    :
+      [dmxPort] "e" (dmxPort),
+      [outMask] "r" (~dmxBit),
+      [outBit] "r" (dmxBit),
+      [delCountVal] "M" (F_CPU/1000000-3),
+      [value] "r" (value)
   );
 }
 
@@ -168,9 +152,9 @@ ISR(TIMER2_OVF_vect,ISR_NOBLOCK) {
       uint8_t i;
       if (bitsLeft < 35) break;
       bitsLeft-=35;
-      DMX_PORT &= ~_BV(DMX_BIT);
+      *dmxPort &= ~dmxBit;
       for (i=0; i<11; i++) _delay_us(8);
-      DMX_PORT |= _BV(DMX_BIT);
+      *dmxPort |= dmxBit;
       _delay_us(8);
       dmxSendByte(0);
     } else {
@@ -215,6 +199,17 @@ void dmxMaxChannel(int channel) {
 
 /* C++ wrapper */
 
+
+/** Set output pin
+ * @param pin Output digital pin to use
+ */
+void DmxSimpleClass::usePin(uint8_t pin) {
+  dmxPin = pin;
+  if (dmxStarted && (pin != dmxPin)) {
+    dmxEnd();
+    dmxBegin();
+  }
+}
 
 /** Set DMX maximum channel
  * @param channel The highest DMX channel to use
