@@ -25,7 +25,7 @@ This library gives you a simple way to drive DMX from Arduino. DMX output is on 
 = Function calls =
   ==!DmxSimple.write(channel, value);==
     Set DMX channel to value.
-    Channel has the range 1 to 128 (512 on all 328 Arduino).
+    Channel has the range 1 to 512 (128 on old Arduinos with a 168 or Mega 8).
     Value is in the range 0 (off) to 255 (full brightness).
 
   ==!DmxSimple.maxChannel(channel);==
@@ -39,7 +39,7 @@ This library gives you a simple way to drive DMX from Arduino. DMX output is on 
 = Library limitations =
   Timer 2 is used.
   A significant amount of time is spent with interrupts off. Avoid using the serial port at speeds above 19200 (16MHz Arduino) or 9600 (8MHz Arduino).
-  Due to RAM constraints, only 128 channels are supported on 168 or Mega8 Arduinos. Arduinos with processor sockets can easily be upgraded to a 328 to control all 512 channels.
+  Due to the small amount of RAM on 168 and Mega8 Arduinos, only 128 channels are supported. Arduinos with processor sockets can easily be upgraded to a 328 to control all 512 channels.
   Pin 3 is used for DMX transmission.
 
 = Upgrade notes =
