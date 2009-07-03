@@ -44,7 +44,7 @@ The software output is compatible with the [http://tinkerit.myshopify.com/collec
 
 = Library limitations =
   Timer 2 is used.
-  Due to the small amount of RAM on 168 and Mega8 Arduinos, only 128 channels are supported. Arduinos with processor sockets can easily be upgraded to a 328 to control all 512 channels.
+  Due to the small amount of RAM on 168 and Mega8 Arduinos, only the first 128 channels are supported. Arduinos with processor sockets can easily be upgraded to a 328 to control all 512 channels.
 
 = Upgrade notes =
   The original version 1 of DmxSimple used a file "DmxInterrupt.h". This has since been removed. To upgrade old sketches, remove the #include "DmxInterrupt.h" line. When upgrading the library from v1, delete all the old files before copying the contents of the new archive.
