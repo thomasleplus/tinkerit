@@ -1,5 +1,5 @@
 #######################################
-# Syntax Coloring Map For Ultrasound
+# Syntax Coloring Map For DmxSimple
 #######################################
 
 #######################################
@@ -12,10 +12,10 @@ DmxSimple	KEYWORD1
 # Methods and Functions (KEYWORD2)
 #######################################
 
-write           KEYWORD2
-maxChannel      KEYWORD2
-usePin          KEYWORD2
-
+write	KEYWORD2
+maxChannel	KEYWORD2
+usePin	KEYWORD2
+  
 #######################################
 # Constants (LITERAL1)
 #######################################
