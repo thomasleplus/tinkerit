@@ -4,7 +4,7 @@ http://farm4.static.flickr.com/3562/3331348134_e4ecaa9a95_m.jpg
 
 == [http://www.vimeo.com/3453833 Video walkthrough now available] ==
 
-DMX controlled lights and visual effects are easily available from DJ or theatrical suppliers. This library gives you a simple way to drive spot lamps, floods, wall washers, lasers, smoke machines and more from a normal Arduino using DMX. If you can use analogWrite() to dim an LED, you will have no problems using DmxSimple to control something much bigger and brighter.
+DMX controlled lights and visual effects are easily available from DJ or theatrical suppliers. This library gives you a simple way to drive spot lamps, floods, wall washers, lasers, smoke machines and more from a normal Arduino using DMX. If you can use analogWrite() to dim an LED, you will have no problems using !DmxSimple to control something much bigger and brighter.
 
 The software output is compatible with the [http://tinkerit.myshopify.com/collections/lighting-solutions/products/dmx-shield Tinker.it! DMX shield], or [http://www.arduino.cc/playground/DMX/DMXShield DIY DMX circuits].
 
