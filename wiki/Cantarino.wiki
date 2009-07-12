@@ -54,8 +54,8 @@ The following phonemes are currently supported, based on the SAM Apple ][ synthe
 || J || *j*u*dg*e ||
 || Z || *z*oo ||
 || ZH || plea*s*ure ||
-|| V || f*ee*t ||
-|| DH || f*ee*t ||
+|| V || se*v*en ||
+|| DH || *th*en ||
 || S || *S*unday 12th July 2009 ||
 || SH || fi*sh* ||
 || F || *f*ish ||
