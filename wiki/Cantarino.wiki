@@ -70,4 +70,5 @@ The following phonemes are currently supported, based on data from the SAM Apple
 || Q || glottal stop ||
 
 = Credits =
+Formant synthesis system: inspired by SAM
 Logo: cropped from http://www.flickr.com/photos/jeanbaptisteparis/119421176/
