@@ -8,6 +8,10 @@ Cantarino is a speech synthesiser for Arduino.
 
 The PWM output on pin 3 is reprogrammed to run at a much faster rate. It runs fast enough to play back sound.
 
+= Download demo =
+
+Demo presented at Music Hack Day is [http://tinkerit.googlecode.com/svn/trunk/Cantarino/speech_daisybell.pde downloadable here]. Audio out is on Arduino pin 3.
+
 = Formant synthesiser =
 
 An interrupt on the PWM output timer calls a sample generator. This uses a synthesis similar to FOF or granule synthesis - using two sines and a square wave of adjustable pitch and amplitude, synced and enveloped by a pitch of selectable frequency. Phase modulation is added to the pitch, to allow unvoiced phonemes to be uttered.
