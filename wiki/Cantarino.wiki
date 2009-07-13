@@ -11,7 +11,7 @@ The PWM output on pin 3 is reprogrammed to run at a much faster rate. It runs fa
 
 = Download demo =
 
-Demo presented at Music Hack Day is [http://tinkerit.googlecode.com/svn/trunk/Cantarino/speech_daisybell.pde downloadable here]. Audio out is on Arduino pin 3.
+Demo presented at Music Hack Day is [hhttp://tinkerit.googlecode.com/files/speech_daisybell.pde downloadable here]. Audio out is on Arduino pin 3.
 
 = Formant synthesiser =
 
