@@ -68,3 +68,6 @@ The following phonemes are currently supported, based on data from the SAM Apple
 || CH || spee *ch* ||
 || _H || a *h* ead ||
 || Q || glottal stop ||
+
+= Credits =
+Logo: cropped from http://www.flickr.com/photos/jeanbaptisteparis/119421176/
