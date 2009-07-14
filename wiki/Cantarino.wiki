@@ -11,6 +11,9 @@ Cantarino is a software speech synthesiser for Arduino. It is still a work in pr
 
 Demo presented at Music Hack Day is [http://tinkerit.googlecode.com/files/speech_daisybell.pde downloadable here]. Audio out is on Arduino pin 3. A schematic is at the end of the video.
 
+= Community =
+
+This is a work in progress. Sign up to [http://groups.google.com/group/cantarino the Google Group] to watch or guide Cantarino's development.
 
 = Technical: Formant synthesiser =
 
