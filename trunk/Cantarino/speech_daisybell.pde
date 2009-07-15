@@ -170,7 +170,7 @@ uint8_t formantTable[] PROGMEM = {
    0x6,0x54,0x5e,0x0,0xa,0x5,0x0,/*76 KXb*/    0x6,0x54,0x5e,0x0,0x0,0x0,0x0 /*77 KXc*/
 };
 
-uint16_t pitchTable[64] PROGMEM = {
+uint16_t pitchTable[64] = {
   // Covers A1 to C7
   58,61,65,69,73,77,82,86,92,97,
   103,109,115,122,129,137,145,154,163,173,
@@ -263,9 +263,9 @@ void loop() {
 
     tweenFrames = pgm_read_byte(framePos++);
 
-    startPitch = pgm_read_word(pitchTable+2*pgm_read_byte(framePos++));
+    startPitch = pitchTable[pgm_read_byte(framePos++)];
     nextFormant = pgm_read_byte(framePos);
-    nextPitch = pgm_read_word(pitchTable+2*pgm_read_byte(framePos+3));
+    nextPitch = pitchTable[pgm_read_byte(framePos+3)];
     pitchPhaseInc = startPitch;
     formantPos = formantTable + startFormant * FORMANT_SZ;
     form1PhaseInc = startForm1PhaseInc = pgm_read_byte(formantPos++)*formantScale;
