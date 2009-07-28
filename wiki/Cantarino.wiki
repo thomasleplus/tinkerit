@@ -1,4 +1,5 @@
 #summary Cantarino, the Arduino speech synthesiser
+#labels Featured
 http://farm4.static.flickr.com/3437/3717469268_4234104752_m.jpg
 
 = Introduction =
