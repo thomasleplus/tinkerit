@@ -1,11 +1,20 @@
 #summary Amenduino project
 
 = Introduction =
-
 Amenduino plays an ever-changing percussion track. It requires no external hardware other than an audio amplifier and speaker. Amenduino is an interesting introduction to the world of algorithmically generated music.
 
-= Background =
+= Compatibility =
+This project only works on the Arduino Duemilanove 328 and equivalents. 168 based Arduinos are not supported due to lack of Flash space. The Mega is not supported yet.
 
+= Download =
+Coming soon...
+
+= Schematic =
+The circuit is simple. Connect an audio amplifier to Digital pin 3 of the Arduino. Connect ground on the amplifier to GND on the Arduino.
+
+Optionally, LEDs can be connected to pins 6, 8, 10 and 12 for a simple light show.  Pins 7, 9, 11 and 13 are grounded, so LEDs can be slotted with anode to pin 6, cathode to pin 7, and similarly 8/9, 10/11 and 12/13.
+
+= Background =
 The [http://en.wikipedia.org/wiki/Amen_break Amen break] is a short sample of a 1969 B-side, "Amen, Brother" by the Winstons. Due to its clear recording and consistent timing, it was regularly sampled in the 80's as a percussion loop in contemporary music - notably Hip-hop, jungle and drum & bass. As sampling methods improved, the sample was cut and spliced to generate new rhythms - but the sample remains in use to this day.
 
 This project repurposes the Arduino to cut and splice Amen into an infinite stream of customisable ever-changing percussion. The code is tweakable, so you can develop your own cut and splicing algorithms.
