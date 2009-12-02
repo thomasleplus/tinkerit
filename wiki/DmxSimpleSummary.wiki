@@ -43,4 +43,6 @@ void loop() {
 }
 }}}
 
-Very simple. Forget about sending the DMX frame in the appropriate sequence. It is all handled for you. DmxSimple.write() behaves in an almost identical way to analogWrite(). The only difference is that the DmxSimple version uses DMX channels, not Arduino pins.
+Very simple. Forget about sending the DMX frame in the appropriate sequence. It is all handled for you. `DmxSimple.write()` behaves in an almost identical way to `analogWrite()`. The only difference is that the DmxSimple version uses DMX channels, not Arduino pins.
+
+=[DmxSimpleInstallation Installing DmxSimple...]=
