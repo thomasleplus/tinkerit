@@ -4,7 +4,9 @@
 
 In the Arduino software, view the example "DmxSimple > FadeUp"
 
-{{{#include <DmxSimple.h>}}}
+{{{
+#include <DmxSimple.h>
+}}}
 All sketches that use DmxSimple must include this line near the top of a sketch. This tells the Arduino system to include the DmxSimple library. This line can be automatically inserted from the Arduino menu using Sketch > Import Library... > DmxSimple.
 
 {{{
