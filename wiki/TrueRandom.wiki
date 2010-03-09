@@ -13,7 +13,7 @@ The Arduino default random() function generates what appear to be random numbers
 You get a random number. Really random. Different every time you restart. It is slower, but genuinely random.
 
 = Example time =
-`
+{{{
 #include <TrueRandom.h>
 
 void setup() {
@@ -30,37 +30,37 @@ void setup() {
 void loop() {
   ; // Do nothing
 }
-`
+}}}
 
 Upload that code to an Arduino Duemilanove and watch it on the Serial Monitor at 19200 baud. Hit the reset button, and see what it does.
 
 = TrueRandom functions =
 
-= TrueRandom.rand() =
+== TrueRandom.rand() ==
 Like the ANSI C rand() command, this generates a random number between 0 and the highest signed integer 32767.
 
-= TrueRandom.random() =
+== TrueRandom.random() ==
 Like the Arduino library and ANSI C, this generates a random number between 0 and the highest signed long integer 2147483647.
 
-= TrueRandom.random(n) =
+== TrueRandom.random(n) ==
 This generates a random number between 0 and (n-1). So random(6) will generate numbers between 0 and 5.
 
-= TrueRandom.random(a,b) =
+== TrueRandom.random(a,b) ==
 This generates a random number between a and (b-1). So random(1,7) will generate numbers between 1 and 6.
 
-= TrueRandom.randomBit() =
+== TrueRandom.randomBit() ==
 Generating true random numbers takes time, so it can be useful to only generate as many random bits as you need. randomBit() generates a 0 or a 1 with 50% probability. This is the core function from which the other TrueRandom libraries are built.
 
-= TrueRandom.randomByte() =
+== TrueRandom.randomByte() ==
 Generates a random byte between 0 and 255. Equivalent to random(256).
 
-= TrueRandom.memfill(address, length) =
+== TrueRandom.memfill(address, length) ==
 Fills a block of bytes with random numbers. (length) bytes are filled in total, starting at the given (address).
 
-= TrueRandom.mac(address) =
+== TrueRandom.mac(address) ==
 This generates a random MAC address, and writes it into an array. This is particularly useful when experimenting with more than one Ethernet shield, as randomly generated MAC addresses are very unlikely to ever clash, even when every Arduino has the same code. See the MacAddress example which shows this in use.
 
-= TrueRandom.uuid(address) =
+== TrueRandom.uuid(address) ==
 This generates a random UUID, and writes it to an array. UUIDs are globally unique numbers that are often used in web services and production electronics. TrueRandom can produce any one of 5,316,911,983,139,663,491,615,228,241,121,378,304 different numbers.
 
 
