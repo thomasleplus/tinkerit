@@ -36,11 +36,10 @@ Upload that code to an Arduino Duemilanove and watch it on the Serial Monitor at
 
 = TrueRandom functions =
 
-== TrueRandom.rand() ==
-Like the ANSI C rand() command, this generates a random number between 0 and the highest signed integer 32767.
+The random functions of Arduino are replicated in TrueRandom.
 
 == TrueRandom.random() ==
-Like the Arduino library and ANSI C, this generates a random number between 0 and the highest signed long integer 2147483647.
+Like the Arduino library and ANSI C, this generates a random number between 0 and the highest signed long integer 2,147,483,647.
 
 == TrueRandom.random(n) ==
 This generates a random number between 0 and (n-1). So random(6) will generate numbers between 0 and 5.
@@ -54,23 +53,14 @@ Generating true random numbers takes time, so it can be useful to only generate 
 == TrueRandom.randomByte() ==
 Generates a random byte between 0 and 255. Equivalent to random(256).
 
-== TrueRandom.memfill(address, length) ==
-Fills a block of bytes with random numbers. (length) bytes are filled in total, starting at the given (address).
-
 == TrueRandom.mac(address) ==
 This generates a random MAC address, and writes it into an array. This is particularly useful when experimenting with more than one Ethernet shield, as randomly generated MAC addresses are very unlikely to ever clash, even when every Arduino has the same code. See the MacAddress example which shows this in use.
 
 == TrueRandom.uuid(address) ==
 This generates a random UUID, and writes it to an array. UUIDs are globally unique numbers that are often used in web services and production electronics. TrueRandom can produce any one of 5,316,911,983,139,663,491,615,228,241,121,378,304 different numbers.
 
+== TrueRandom.rand() ==
+Like the ANSI C rand() command, this generates a random number between 0 and the highest signed integer 32767.
 
-
-
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+== TrueRandom.memfill(address, length) ==
+Fills a block of bytes with random numbers. (length) bytes are filled in total, starting at the given (address).
