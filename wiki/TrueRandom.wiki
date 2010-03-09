@@ -57,7 +57,7 @@ Generates a random byte between 0 and 255. Equivalent to random(256).
 This generates a random MAC address, and writes it into an array. This is particularly useful when experimenting with more than one Ethernet shield, as randomly generated MAC addresses are very unlikely to ever clash, even when every Arduino has the same code. See the MacAddress example which shows this in use.
 
 == TrueRandom.uuid(address) ==
-This generates a random UUID, and writes it to an array. UUIDs are globally unique numbers that are often used in web services and production electronics. !TrueRandom can produce any one of 5,316,911,983,139,663,491,615,228,241,121,378,304 different numbers.
+This generates a random UUID, and writes it to an array. UUIDs are globally unique numbers that are often used in web services and production electronics. !TrueRandom can produce any one of 5,316,911,983,139,663,491,615,228,241,121,378,304 different numbers. You're more likely to win top prize in the national lottery 3 times in a row than get two matching UUIDs.
 
 == TrueRandom.rand() ==
 Like the ANSI C rand() command, this generates a random number between 0 and the highest signed integer 32767.
