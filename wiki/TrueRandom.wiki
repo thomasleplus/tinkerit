@@ -2,13 +2,13 @@
 
 = Introduction =
 
-TrueRandom generates true random numbers on Arduino. They are different every time you start your program, and are truly unpredictable unlike the default Arduino random() function.
+!TrueRandom generates true random numbers on Arduino. They are different every time you start your program, and are truly unpredictable unlike the default Arduino random() function.
 
 = What happens when you use random()? =
 
 The Arduino default random() function generates what appear to be random numbers. However, they are actually calculated from a formula. On reset, the formula is reset at a start point, then progresses through a long sequence of random looking numbers. However, Arduino starts at the same point in the sequence every reset. You can move to a different part of the sequence using srandom(), but how do you get a random start point from in the first place?
 
-= What happens when you use TrueRandom.random()? =
+= What happens when you use !TrueRandom.random()? =
 
 You get a random number. Really random. Different every time you restart. It is slower, but genuinely random.
 
@@ -36,7 +36,7 @@ Upload that code to an Arduino Duemilanove and watch it on the Serial Monitor at
 
 = TrueRandom functions =
 
-The random functions of Arduino are replicated in TrueRandom.
+The existing random functions of Arduino are replicated in !TrueRandom.
 
 == TrueRandom.random() ==
 Like the Arduino library and ANSI C, this generates a random number between 0 and the highest signed long integer 2,147,483,647.
@@ -48,7 +48,7 @@ This generates a random number between 0 and (n-1). So random(6) will generate n
 This generates a random number between a and (b-1). So random(1,7) will generate numbers between 1 and 6.
 
 == TrueRandom.randomBit() ==
-Generating true random numbers takes time, so it can be useful to only generate as many random bits as you need. randomBit() generates a 0 or a 1 with 50% probability. This is the core function from which the other TrueRandom libraries are built.
+Generating true random numbers takes time, so it can be useful to only generate as many random bits as you need. randomBit() generates a 0 or a 1 with 50% probability. This is the core function from which the other !TrueRandom libraries are built.
 
 == TrueRandom.randomByte() ==
 Generates a random byte between 0 and 255. Equivalent to random(256).
@@ -57,7 +57,7 @@ Generates a random byte between 0 and 255. Equivalent to random(256).
 This generates a random MAC address, and writes it into an array. This is particularly useful when experimenting with more than one Ethernet shield, as randomly generated MAC addresses are very unlikely to ever clash, even when every Arduino has the same code. See the MacAddress example which shows this in use.
 
 == TrueRandom.uuid(address) ==
-This generates a random UUID, and writes it to an array. UUIDs are globally unique numbers that are often used in web services and production electronics. TrueRandom can produce any one of 5,316,911,983,139,663,491,615,228,241,121,378,304 different numbers.
+This generates a random UUID, and writes it to an array. UUIDs are globally unique numbers that are often used in web services and production electronics. !TrueRandom can produce any one of 5,316,911,983,139,663,491,615,228,241,121,378,304 different numbers.
 
 == TrueRandom.rand() ==
 Like the ANSI C rand() command, this generates a random number between 0 and the highest signed integer 32767.
