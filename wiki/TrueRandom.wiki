@@ -6,6 +6,9 @@
 = Compatibility =
 TrueRandom currently functions on the Arduino Diecimila, Duemilanove, 168 and 328 based Arduinos. It does not yet function on the Arduino Mega. TrueRandom uses Analog 0. Do not connect anything to this pin. These restrictions may be removed in future versions of this library.
 
+= Download =
+[http://tinkerit.googlecode.com/files/TrueRandom.zip Download TrueRandom library.]
+
 = What happens when you use the Arduino random() function? =
 The Arduino default random() function generates what appear to be random numbers. They are actually calculated from a formula. On reset, the formula is reset at a start point, then progresses through a long sequence of random looking numbers. However, Arduino starts at the same point in the sequence every reset. You can move to a different part of the sequence using srandom(), but how do you get a random start point from in the first place?
 
