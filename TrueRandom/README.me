@@ -1,53 +1,86 @@
-[Source](https://code.google.com/p/tinkerit/wiki/TrueRandom "Permalink to TrueRandom - tinkerit - TrueRandom library for Arduino - Open source releases from TinkerLondon and Tinker.it") # TrueRandom - tinkerit - TrueRandom library for Arduino - Open source releases from TinkerLondon and Tinker.it TrueRandom generates true random numbers on Arduino. They are different every time you start your program, and are truly unpredictable unlike the default Arduino random() function. [TrueRandom][1] currently functions on the Arduino Diecimila, Duemilanove, 168 and 328 based Arduinos. It does not yet function on the Arduino Mega. [TrueRandom][1] uses Analog 0. Do not connect anything to this pin. These restrictions may be removed in future versions of this library. [Download TrueRandom library.][2] Extract the zip file, and copy the directory to your Arduino libraries folder. The Arduino default random() function generates what appear to be random numbers. They are actually calculated from a formula. On reset, the formula is reset at a start point, then progresses through a long sequence of random looking numbers. However, Arduino starts at the same point in the sequence every reset. You can move to a different part of the sequence using srandom(), but how do you get a random start point from in the first place? You get a random number. Really random. Different every time you restart. #include
+# <a name="Introduction"></a>Introduction[](#Introduction)
 
-    void setup() {
-      Serial.begin(9600);
+TrueRandom generates true random numbers on Arduino. They are different every time you start your program, and are truly unpredictable unlike the default Arduino random() function.
 
-      Serial.print("I threw a random die and got ");
-      Serial.print(random(1,7));
+# <a name="Compatibility"></a>Compatibility[](#Compatibility)
 
-      Serial.print(". Then I threw a TrueRandom die and got ");
-      Serial.println(TrueRandom.random(1,7));
+[TrueRandom](/p/tinkerit/wiki/TrueRandom) currently functions on the Arduino Diecimila, Duemilanove, 168 and 328 based Arduinos. It does not yet function on the Arduino Mega. [TrueRandom](/p/tinkerit/wiki/TrueRandom) uses Analog 0\. Do not connect anything to this pin. These restrictions may be removed in future versions of this library.
 
-    }
+# <a name="Download"></a>Download[](#Download)
 
-    void loop() {
-      ; // Do nothing
-    }
+[Download TrueRandom library.](http://tinkerit.googlecode.com/files/TrueRandom.zip) Extract the zip file, and copy the directory to your Arduino libraries folder.
 
-Upload that code to an Arduino Duemilanove and watch it on the Serial Monitor at 9600 baud. Hit the reset button, and see what it does. The random() function returns the same value every time, but the [TrueRandom][1] version is always different.
+# <a name="What_happens_when_you_use_the_Arduino_random()_function?"></a>What happens when you use the Arduino random() function?[](#What_happens_when_you_use_the_Arduino_random()_function?)
+
+The Arduino default random() function generates what appear to be random numbers. They are actually calculated from a formula. On reset, the formula is reset at a start point, then progresses through a long sequence of random looking numbers. However, Arduino starts at the same point in the sequence every reset. You can move to a different part of the sequence using srandom(), but how do you get a random start point from in the first place?
+
+# <a name="What_happens_when_you_use_TrueRandom_.random()_function?"></a>What happens when you use TrueRandom.random() function?[](#What_happens_when_you_use_TrueRandom_.random()_function?)
+
+You get a random number. Really random. Different every time you restart.
+
+# <a name="Example_time"></a>Example time[](#Example_time)
+
+<pre class="prettyprint"><span class="com">#include</span> <span class="pln"></span> <span class="str"><TrueRandom.h></span><span class="pln">  
+
+</span><span class="kwd">void</span> <span class="pln">setup</span><span class="pun">()</span> <span class="pln"></span> <span class="pun">{</span><span class="pln"> </span> <span class="typ">Serial</span><span class="pun">.</span><span class="kwd">begin</span><span class="pun">(</span><span class="lit">9600</span><span class="pun">);</span><span class="pln"> </span> <span class="typ">Serial</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="str">"I threw a random die and got "</span><span class="pun">);</span><span class="pln"> </span> <span class="typ">Serial</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">random</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="lit">7</span><span class="pun">));</span><span class="pln"> </span> <span class="typ">Serial</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="str">". Then I threw a TrueRandom die and got "</span><span class="pun">);</span><span class="pln"> </span> <span class="typ">Serial</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="typ">TrueRandom</span><span class="pun">.</span><span class="pln">random</span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="lit">7</span><span class="pun">));</span><span class="pln">  
+
+</span><span class="pun">}</span><span class="pln">  
+
+</span><span class="kwd">void</span> <span class="pln">loop</span><span class="pun">()</span> <span class="pln"></span> <span class="pun">{</span><span class="pln"> </span> <span class="pun">;</span> <span class="pln"></span> <span class="com">// Do nothing</span><span class="pln">  
+</span><span class="pun">}</span></pre>
+
+Upload that code to an Arduino Duemilanove and watch it on the Serial Monitor at 9600 baud. Hit the reset button, and see what it does. The random() function returns the same value every time, but the [TrueRandom](/p/tinkerit/wiki/TrueRandom) version is always different.
+
+# <a name="basic_functions"></a>[TrueRandom](/p/tinkerit/wiki/TrueRandom) basic functions[](#basic_functions)
 
 The existing random functions of Arduino are replicated in TrueRandom.
 
-Like the Arduino library and ANSI C, this generates a random number between 0 and the highest signed long integer 2,147,483,647.
+## <a name=".random()"></a>[TrueRandom](/p/tinkerit/wiki/TrueRandom).random()[](#.random())
 
-This generates a random number between 0 and (n-1). So random(6) will generate numbers between 0 and 5.
+Like the Arduino library and ANSI C, this generates a random number between 0 and the highest signed long integer 2,147,483,647\.
 
-This generates a random number between a and (b-1). So random(1,7) will generate numbers between 1 and 6.
+## <a name=".random(n)"></a>[TrueRandom](/p/tinkerit/wiki/TrueRandom).random(n)[](#.random(n))
+
+This generates a random number between 0 and (n-1). So random(6) will generate numbers between 0 and 5\.
+
+## <a name=".random(a,b)"></a>[TrueRandom](/p/tinkerit/wiki/TrueRandom).random(a,b)[](#.random(a,b))
+
+This generates a random number between a and (b-1). So random(1,7) will generate numbers between 1 and 6\.
+
+# <a name="advanced_functions"></a>[TrueRandom](/p/tinkerit/wiki/TrueRandom) advanced functions[](#advanced_functions)
+
+## <a name=".randomBit()"></a>[TrueRandom](/p/tinkerit/wiki/TrueRandom).randomBit()[](#.randomBit())
 
 Generating true random numbers takes time, so it can be useful to only generate as many random bits as you need. randomBit() generates a 0 or a 1 with 50% probability. This is the core function from which the other TrueRandom libraries are built.
 
-Generates a random byte between 0 and 255. Equivalent to random(256).
+## <a name=".randomByte()"></a>[TrueRandom](/p/tinkerit/wiki/TrueRandom).randomByte()[](#.randomByte())
 
-Like the ANSI C rand() command, this generates a random number between 0 and the highest signed integer 32767.
+Generates a random byte between 0 and 255\. Equivalent to random(256).
 
-## [TrueRandom][1].memfill(address, length)
+## <a name=".rand()"></a>[TrueRandom](/p/tinkerit/wiki/TrueRandom).rand()[](#.rand())
+
+Like the ANSI C rand() command, this generates a random number between 0 and the highest signed integer 32767\.
+
+## <a name=".memfill(address,_length)"></a>[TrueRandom](/p/tinkerit/wiki/TrueRandom).memfill(address, length)[](#.memfill(address,_length))
 
 Fills a block of bytes with random numbers. (length) bytes are filled in total, starting at the given (address).
 
-When operating devices on an Ethernet network, each device must have a unique MAC address. Officially, MAC addresses should be assigned formally via the [IEEE Registration Authority][3]. However, for practical purposes, MAC addresses can be randomly assigned without problems. This function writes a 6 byte MAC address to a given address. Randomly generated MAC addresses are great for projects or workshops involving large numbers of Arduino Ethernet shields, as each shield has a different MAC address, even though they are running identical code. See the MacAddress example which shows this in use.
+# <a name="specialist_functions"></a>[TrueRandom](/p/tinkerit/wiki/TrueRandom) specialist functions[](#specialist_functions)
+
+## <a name=".mac(address)"></a>[TrueRandom](/p/tinkerit/wiki/TrueRandom).mac(address)[](#.mac(address))
+
+When operating devices on an Ethernet network, each device must have a unique MAC address. Officially, MAC addresses should be assigned formally via the [IEEE Registration Authority](http://standards.ieee.org/regauth/index.html). However, for practical purposes, MAC addresses can be randomly assigned without problems. This function writes a 6 byte MAC address to a given address. Randomly generated MAC addresses are great for projects or workshops involving large numbers of Arduino Ethernet shields, as each shield has a different MAC address, even though they are running identical code. See the MacAddress example which shows this in use.
+
+## <a name=".uuid(address)"></a>[TrueRandom](/p/tinkerit/wiki/TrueRandom).uuid(address)[](#.uuid(address))
 
 UUIDs are unique identifiers. They are 16 bytes (128 bits) long, which means that generating them randomly This generates a random UUID, and writes it to an array. UUIDs are globally unique numbers that are often used in web services and production electronics. TrueRandom can produce any one of 5,316,911,983,139,663,491,615,228,241,121,378,304 different numbers. You're more likely to win top prize in the national lottery 3 times in a row than get two matching UUIDs.
 
-It is hard to get a truly random number from Arduino. [TrueRandom][1] does it by setting up a noisy voltage on Analog pin 0, measuring it, and then discarding all but the least significant bit of the measured value. However, that isn't noisy enough, so a [von Neumann whitening algorithm][4] gathers enough entropy from multiple readings to ensure a fair distribution of 1s and 0s.
+# <a name="How_works"></a>How [TrueRandom](/p/tinkerit/wiki/TrueRandom) works[](#How_works)
 
-The other functions within [TrueRandom][1] construct the requested values by gathering just enough random bits to produce the required numbers. Generating a random bit takes time, so a significant part of the code works to ensure the random bits are used as efficiently as possible.
+It is hard to get a truly random number from Arduino. [TrueRandom](/p/tinkerit/wiki/TrueRandom) does it by setting up a noisy voltage on Analog pin 0, measuring it, and then discarding all but the least significant bit of the measured value. However, that isn't noisy enough, so a [von Neumann whitening algorithm](http://en.wikipedia.org/wiki/Hardware_random_number_generator) gathers enough entropy from multiple readings to ensure a fair distribution of 1s and 0s.
 
-[Generative Music from Gijs][5]
+The other functions within [TrueRandom](/p/tinkerit/wiki/TrueRandom) construct the requested values by gathering just enough random bits to produce the required numbers. Generating a random bit takes time, so a significant part of the code works to ensure the random bits are used as efficiently as possible.
 
-[1]: http://code.google.com/p/tinkerit/wiki/TrueRandom
-[2]: http://tinkerit.googlecode.com/files/TrueRandom.zip
-[3]: http://standards.ieee.org/regauth/index.html
-[4]: http://en.wikipedia.org/wiki/Hardware_random_number_generator
-[5]: http://gieskes.nl/undefined/prepared-gameboy/?f=generative
-  
+# <a name="Projects_using"></a>Projects using [TrueRandom](/p/tinkerit/wiki/TrueRandom)[](#Projects_using)
+
+[Generative Music from Gijs](http://gieskes.nl/undefined/prepared-gameboy/?f=generative)
