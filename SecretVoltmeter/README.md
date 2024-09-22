@@ -34,7 +34,7 @@ The voltage is returned in millivolts. So 5000 is 5V, 3300 is 3.3V.
 
 Note the following:
 
-*   This works on Arduinos with a **328 or 168 only**. It looks like the same trick might be possible on the Arduino Mega - experiments are ongoing, and will be reported here.
+- This works on Arduinos with a **328 or 168 only**. It looks like the same trick might be possible on the Arduino Mega - experiments are ongoing, and will be reported here.
 
 # How it works
 
