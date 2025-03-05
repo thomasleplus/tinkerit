@@ -1,6 +1,6 @@
 # Introduction
 
-It turns out the Arduino 328 has a built in thermometer. Not the old Mega8 or 168\. Not the Arduino Mega. Just 328 based Arduinos.
+It turns out the Arduino 328 has a built in thermometer. Not the old Mega8 or 168. Not the Arduino Mega. Just 328 based Arduinos.
 
 # Code
 
@@ -30,7 +30,7 @@ void loop() {
 }
 ```
 
-Temperature is returned in milli-�C. So 25000 is 25�C.
+Temperature is returned in milli-°C. So 25000 is 25°C.
 
 # How it works
 
@@ -40,13 +40,13 @@ If you measure the sensor voltage against the internal precision 1.1V reference,
 
 # Additional notes
 
-The sensor isn't very accurate - the data sheet says �10�C. But once you've worked out the offset and correct for it, accuracy improves.
+The sensor isn't very accurate - the data sheet says 10°C. But once you've worked out the offset and correct for it, accuracy improves.
 
 Note the following:
 
 - This works on Arduinos using CPU's with '8P' in the part number. For standard Arduinos, that means **328 only**.
 - If you have an Arduino clone with an ATmega168P or ATmega168PA, it will work there too. It will not work with an ATmega168\. (Thanks @blalor)
 - This sensor is pretty useless unless you calibrate it against a known temperature.
-- The sensor outputs in approximately 1�C steps.
+- The sensor outputs in approximately 1°C steps.
 
 But hey - it's free!
