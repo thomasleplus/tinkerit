@@ -3,7 +3,7 @@
 // by Peter Knight, Tinker.it https://tinker.it
 //
 // Help:      https://github.com/thomasleplus/tinkerit/tree/main/docs/Auduino.md
-// More help: http://groups.google.com/group/auduino
+// More help: https://groups.google.com/group/auduino
 //
 // Analog in 0: Grain 1 pitch
 // Analog in 1: Grain 2 decay

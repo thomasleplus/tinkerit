@@ -13,10 +13,10 @@
  * UUIDs are particularly useful in web-aware devices, or radio networks.
  *
  * For a discussion of the use of UUIDs, see
- *   http://en.wikipedia.org/wiki/Universally_Unique_Identifier
+ *   https://en.wikipedia.org/wiki/Universally_Unique_Identifier
  *
  * For implementation details of UUIDs, see
- *   http://tools.ietf.org/html/rfc4122
+ *   https://tools.ietf.org/html/rfc4122
  */
 
 #include <TrueRandom.h>
