@@ -10,7 +10,7 @@
 ** 100c355w : Set channel 100 to value 255.
 **
 ** For more details, and compatible Processing sketch,
-** visit https://thomasleplus.github.io/tinkerit/SerialToDmx
+** visit https://github.com/thomasleplus/tinkerit/tree/main/docs/SerialToDmx.md
 **
 ** Help and support: https://groups.google.com/group/dmxsimple       */
 

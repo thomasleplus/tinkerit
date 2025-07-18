@@ -2,7 +2,7 @@
 //
 // by Peter Knight, Tinker.it https://tinker.it
 //
-// Help:      https://thomasleplus.github.io/tinkerit/Auduino
+// Help:      https://github.com/thomasleplus/tinkerit/tree/main/docs/Auduino.md
 // More help: http://groups.google.com/group/auduino
 //
 // Analog in 0: Grain 1 pitch
