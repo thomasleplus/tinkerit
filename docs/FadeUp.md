@@ -1,12 +1,10 @@
-#summary DmxSimple FadeUp example
-#labels Arduino,DMX,DmxSimple
-
-= Introduction =
+# Introduction
 
 A simple example showing how to use DmxSimple on Arduino.
 
-= The code =
-{{{
+# The code {#the_code}
+
+`{{{
 #include <DmxSimple.h>
 
 void setup() {
@@ -19,12 +17,14 @@ void loop() {
     delay(10); // Wait 10ms
   }
 }
-}}}
+}}}`{=mediawiki}
 
-= Details =
+# Details
 
-This code fades DMX channel 1 from off to full on, then snaps back to off again and repeats.
+This code fades DMX channel 1 from off to full on, then snaps back to
+off again and repeats.
 
-`brightness` increments in a `for` loop. Each time around, the `DmxSimple.write()` command updates the DMX network.
+\`brightness\` increments in a \`for\` loop. Each time around, the
+\`DmxSimple.write()\` command updates the DMX network.
 
-The `delay` slows down the fading so it is visible.
+The \`delay\` slows down the fading so it is visible.

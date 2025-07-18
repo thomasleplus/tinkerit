@@ -1,12 +1,10 @@
-#summary DmxSimple SerialToDmx example
-#labels Arduino,DMX,DmxSimple
-
-= Introduction =
+# Introduction
 
 A example showing how to control DmxSimple over a serial port.
 
-= The code =
-{{{
+# The code {#the_code}
+
+`{{{
 #include <DmxSimple.h>
 
 // After installing, switch to Serial Monitor and set the baud rate to 9600.
@@ -44,35 +42,42 @@ void loop() {
     value = 0;
   }
 }
-}}}
+}}}`{=mediawiki}
 
-= Details =
+# Details
 
-The main loop processes serial input character by character. Digits are read to set the variable `value`. Then, special characters use `value` to do something.
+The main loop processes serial input character by character. Digits are
+read to set the variable \`value\`. Then, special characters use
+\`value\` to do something.
 
-The character 'c' sets the `channel` variable. The character 'w' triggers the DmxSimple write.
+The character \'c\' sets the \`channel\` variable. The character \'w\'
+triggers the DmxSimple write.
 
-= Using !SerialToDmx with the Arduino Serial Monitor =
+# Using !SerialToDmx with the Arduino Serial Monitor {#using_serialtodmx_with_the_arduino_serial_monitor}
 
-Set the serial monitor to 9600. You will then see the !SerialToDmx start message.
+Set the serial monitor to 9600. You will then see the !SerialToDmx start
+message.
 
-You can send commands by entering '*<DMX channel>*c*<channel value>*w' and pressing return (or pushing 'send').
+You can send commands by entering
+\'\*`<DMX channel>`{=html}\*c\*`<channel value>`{=html}\*w\' and
+pressing return (or pushing \'send\').
 
-= Using !SerialToDmx from Processing =
+# Using !SerialToDmx from Processing {#using_serialtodmx_from_processing}
 
-If you have myPort set up to talk to Arduino at 9600 baud, this function will give you full DMX control within Processing.
-{{{
+If you have myPort set up to talk to Arduino at 9600 baud, this function
+will give you full DMX control within Processing. `{{{
 void setDmxChannel(int channel, int value) {
   // Convert the parameters into a message of the form: 123c45w where 123 is the channel and 45 is the value
   // then send to the Arduino
   myPort.write( str(channel) + "c" + str(value) + "w" );
 }
-}}}
+}}}`{=mediawiki}
 
-Now you can call setDmxChannel(123,45) to set DMX channel 123 to value 45 within Processing.
+Now you can call setDmxChannel(123,45) to set DMX channel 123 to value
+45 within Processing.
 
-Here is a more complicated example to select a colour from an RGB lamp using the mouse.
-{{{
+Here is a more complicated example to select a colour from an RGB lamp
+using the mouse. `{{{
 /*
 Simple example of Processing controlling DMX devices
 
@@ -143,4 +148,4 @@ void draw() {
   
   delay(20);  // Short pause before repeating
 }
-}}}
+}}}`{=mediawiki}

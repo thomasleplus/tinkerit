@@ -1,15 +1,14 @@
-#summary Accessing the secret thermometer on the Arduino 328
-#labels Featured
+# Introduction
 
-= Introduction =
+It turns out the Arduino 328 has a built in thermometer. Not the old
+Mega8 or 168. Not the Arduino Mega. Just 328 based Arduinos.
 
-It turns out the Arduino 328 has a built in thermometer. Not the old Mega8 or 168. Not the Arduino Mega. Just 328 based Arduinos.
+# Code
 
-= Code =
+Copy, paste into Arduino and see what it returns. It only works on an
+Arduino with a 328 chip.
 
-Copy, paste into Arduino and see what it returns. It only works on an Arduino with a 328 chip.
-
-{{{
+`{{{
 long readTemp() {
   long result;
   // Read temperature sensor against 1.1V reference
@@ -31,26 +30,36 @@ void loop() {
   Serial.println( readTemp(), DEC );
   delay(1000);
 }
-}}}
+}}}`{=mediawiki}
 
 Temperature is returned in milli-°C. So 25000 is 25°C.
 
-= How it works =
-The chip has an internal switch that selects which pin the analogue to digital converter reads. That switch has a few leftover connections, so the chip designers wired them up to useful signals. One of those signals is that simple temperature sensor.
+# How it works {#how_it_works}
 
-If you measure the sensor voltage against the internal precision 1.1V reference, you can calculate approximate temperature. It requires a bit of messing around with the registers, but it can be done. That is how this works.
+The chip has an internal switch that selects which pin the analogue to
+digital converter reads. That switch has a few leftover connections, so
+the chip designers wired them up to useful signals. One of those signals
+is that simple temperature sensor.
 
-= Additional notes =
-The sensor isn't very accurate - the data sheet says ±10°C. But once you've worked out the offset and correct for it, accuracy improves.
+If you measure the sensor voltage against the internal precision 1.1V
+reference, you can calculate approximate temperature. It requires a bit
+of messing around with the registers, but it can be done. That is how
+this works.
+
+# Additional notes {#additional_notes}
+
+The sensor isn\'t very accurate - the data sheet says ±10°C. But once
+you\'ve worked out the offset and correct for it, accuracy improves.
 
 Note the following:
-  * This works on Arduinos using CPU's with '8P' in the part number. For standard Arduinos, that means *328 only*.
-  * If you have an Arduino clone with an ATmega168P or ATmega168PA, it will work there too. It will not work with an ATmega168. (Thanks @blalor)
-  * This sensor is pretty useless unless you calibrate it against a known temperature.
-  * The sensor outputs in approximately 1°C steps.
 
-But hey - it's free!
+` * This works on Arduinos using CPU's with '8P' in the part number. For standard Arduinos, that means *328 only*.`\
+` * If you have an Arduino clone with an ATmega168P or ATmega168PA, it will work there too. It will not work with an ATmega168. (Thanks @blalor)`\
+` * This sensor is pretty useless unless you calibrate it against a known temperature.`\
+` * The sensor outputs in approximately 1°C steps.`
 
-= See also =
+But hey - it\'s free!
+
+# See also {#see_also}
 
 The SecretVoltmeter in the Arduino 168 and 328
