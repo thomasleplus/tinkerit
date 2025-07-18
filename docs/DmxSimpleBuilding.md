@@ -7,10 +7,10 @@ DmxSimple has two modes.
 This is the default mode. An external circuit converts the digital
 signals into a level suitable for driving the DMX signal. It uses one
 small integrated circuit - the SN75176A differential transceiver chip.
-<http://www.arduino.cc/playground/uploads/DMX/send_sn75276a.jpg>
+<https://www.arduino.cc/playground/uploads/DMX/send_sn75276a.jpg>
 
 This design and others are [listed on the Arduino
-Playground.](http://www.arduino.cc/playground/DMX/DMXShield)
+Playground.](https://www.arduino.cc/playground/DMX/DMXShield)
 
 ## Direct drive mode {#direct_drive_mode}
 

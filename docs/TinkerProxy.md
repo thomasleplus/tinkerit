@@ -16,7 +16,7 @@ port.
 
 # Setup
 
-[TinkerProxy](http://tinkerit.googlecode.com/files/tinkerproxy-2_0.zip)
+[TinkerProxy](https://github.com/thomasleplus/tinkerit/tree/main/tinkerproxy-2_0.zip)
 is based on one single executable file and a corresponding configuration
 file.
 
@@ -75,7 +75,7 @@ Most devices use the newline code to terminate a line of text so the
 XMLSocket , without this feature, will never process any data.
 
 The configuration can also be edited using [TinkerProxy
-Configurator](http://tinkerit.googlecode.com/files/TPConfig.zip)
+Configurator](https://github.com/thomasleplus/tinkerit/tree/main/TPConfig.zip)
 
 # Running
 
@@ -91,5 +91,5 @@ for AS2 and one for AS3.
 
 Please note that these are still quite rough at the moment
 
-` * `[`ActionScript 2.0 Example`](http://tinkerit.googlecode.com/files/example_as2.zip)\
-` * `[`ActionScript 3.0 Example`](http://tinkerit.googlecode.com/files/example_as3.zip)` `
+` * `[`ActionScript 2.0 Example`](https://github.com/thomasleplus/tinkerit/tree/main/example_as2.zip)\
+` * `[`ActionScript 3.0 Example`](https://github.com/thomasleplus/tinkerit/tree/main/example_as3.zip)` `

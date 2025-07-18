@@ -27,7 +27,7 @@ with anode to pin 6, cathode to pin 7, and similarly 8/9, 10/11 and
 
 # Background
 
-The [Amen break](http://en.wikipedia.org/wiki/Amen_break) is a short
+The [Amen break](https://en.wikipedia.org/wiki/Amen_break) is a short
 sample of a 1969 B-side, \"Amen, Brother\" by the Winstons. Due to its
 clear recording and consistent timing, it was regularly sampled in the
 80\'s as a percussion loop in contemporary music - notably Hip-hop,
@@ -113,7 +113,7 @@ decompression is happening.
 ## ADPCM decompression {#adpcm_decompression}
 
 The Amen break is a long sample, and a recording of it is too large to
-fit into the Arduino 328. [ADPCM](http://en.wikipedia.org/wiki/ADPCM) is
+fit into the Arduino 328. [ADPCM](https://en.wikipedia.org/wiki/ADPCM) is
 a simple audio compression technique that gives better audio quality for
 a small number of bytes. Adaptive Delta Pulse Code Modulation works by
 storing the difference between samples (delta) rather than the sample
@@ -126,6 +126,6 @@ compression time to give the best fidelity.
 
 The sample was resampled to 98304 samples (128 samples \* 24 blocks per
 beat \* 32 beats in the pattern) using
-[SoX](http://sox.sourceforge.net). Each block was then compressed with
+[SoX](https://sox.sourceforge.net). Each block was then compressed with
 the ADPCM algorithm at different volume levels. The error rate was
 measured, and the best match block was used.

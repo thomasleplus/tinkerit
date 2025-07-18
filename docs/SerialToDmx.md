@@ -93,7 +93,7 @@ Arduino setup:
 
 
 by Peter Knight
-http://www.tinker.it
+https://www.tinker.it
 05 Mar 2009
 */
 

@@ -1,7 +1,7 @@
 # Introduction
 
 The Auduino is a sound synthesiser based on the [Arduino
-platform](http://arduino.cc). It works on all Arduinos running at
+platform](https://arduino.cc). It works on all Arduinos running at
 16MHz - everything from the original Arduino serial to the Arduino Mega.
 It uses granular synthesis techniques to generate a distinctive
 filter-sweep sound that had much more character than boring square
@@ -9,12 +9,12 @@ waves.
 
 # Have a look and a listen {#have_a_look_and_a_listen}
 
-` * `[`The first Auduino`](http://www.vimeo.com/2266458)\
-` * `[`Aiden's Auduino`](http://www.flickr.com/photos/7175086@N05/3066332467/in/pool-72216309@N00)\
-` * `[`xndr77's beautifully cased Auduino`](http://www.flickr.com/photos/machinecollective/sets/72157610797368431/)\
-` * `[`Medaispoca`](http://www.vimeo.com/2473393)\
-` * `[`Berit Greinke`](http://textilefutures.co.uk/exchange/bin/view/TextileFutures/SHhH)\
-` * `[`Adam Franchino's Ant Farm`](http://adamfranchino.net/2010/04/26/arduino-ant-farm/)
+` * `[`The first Auduino`](https://www.vimeo.com/2266458)\
+` * `[`Aiden's Auduino`](https://www.flickr.com/photos/7175086@N05/3066332467/in/pool-72216309@N00)\
+` * `[`xndr77's beautifully cased Auduino`](https://www.flickr.com/photos/machinecollective/sets/72157610797368431/)\
+` * `[`Medaispoca`](https://www.vimeo.com/2473393)\
+` * `[`Berit Greinke`](https://textilefutures.co.uk/exchange/bin/view/TextileFutures/SHhH)\
+` * `[`Adam Franchino's Ant Farm`](https://adamfranchino.net/2010/04/26/arduino-ant-farm/)
 
 # Synthesis model {#synthesis_model}
 
@@ -34,15 +34,15 @@ The repetition rate is set by another control.
 # Programming the Arduino {#programming_the_arduino}
 
 Download the source code from the the [Tinker.it Google Code
-site.](http://code.google.com/p/tinkerit) Load it into the Arduino
+site.](https://github.com/thomasleplus/tinkerit) Load it into the Arduino
 environment, set up your board type and serial port, then hit the Upload
 button. Done. If you\'ve never used Arduino before, you\'ll need to
 download the development software from [the Arduino
-site](http://arduino.cc).
+site](https://arduino.cc).
 
 # Construction
 
-<http://farm4.static.flickr.com/3151/3038569386_fc884579a8_o.png>
+<https://farm4.static.flickr.com/3151/3038569386_fc884579a8_o.png>
 
 Auduino uses 5 controls. You can use anything that generates a 0-5V
 analogue signal, but the prototype uses five 4.7Kohm linear
@@ -62,18 +62,18 @@ most amplifiers don\'t seem to mind.
 # Auduino community {#auduino_community}
 
 We now have a group on [Google
-Groups](http://groups.google.com/group/auduino). Show off your hacks, or
+Groups](https://groups.google.com/group/auduino). Show off your hacks, or
 get help with your Auduino projects.
 
 # Auduino controller hacks {#auduino_controller_hacks}
 
 The Auduino can take any analogue signal and make it audible. Add a
 [Light Dependent
-Resistor](http://www.rapidonline.com/Electronic-Components/Optoelectronics/Photodetectors/Miniature-light-dependent-resistor/29399/kw/light%20dependent%20resistor),
+Resistor](https://www.rapidonline.com/Electronic-Components/Optoelectronics/Photodetectors/Miniature-light-dependent-resistor/29399/kw/light%20dependent%20resistor),
 you have an instant theremin. Add a [linear
-softpot](http://www.sparkfun.com/commerce/product_info.php?products_id=8607),
+softpot](https://www.sparkfun.com/commerce/product_info.php?products_id=8607),
 instant keyboard or ribbon controller. The [Arduino
-Playground](http://www.arduino.cc/playground/) is a great place to get
+Playground](https://www.arduino.cc/playground/) is a great place to get
 new ideas.
 
 # Auduino software hacks {#auduino_software_hacks}

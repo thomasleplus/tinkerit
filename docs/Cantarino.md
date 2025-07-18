@@ -5,16 +5,16 @@ work in progress, but a tech demo that runs on Arduino is now available.
 
 # Demo
 
-## [Demo video](http://vimeo.com/5577046) {#demo_video}
+## [Demo video](https://vimeo.com/5577046) {#demo_video}
 
 Demo presented at Music Hack Day is [downloadable
-here](http://tinkerit.googlecode.com/files/speech_daisybell.pde). Audio
+here](https://github.com/thomasleplus/tinkerit/tree/main/Cantarino/speech_daisybell.pde). Audio
 out is on Arduino pin 3. A schematic is at the end of the video.
 
 # Community
 
 This is a work in progress. Sign up to [the Google
-Group](http://groups.google.com/group/cantarino) to watch or guide
+Group](https://groups.google.com/group/cantarino) to watch or guide
 Cantarino\'s development.
 
 # Technical: Formant synthesiser {#technical_formant_synthesiser}
@@ -57,4 +57,4 @@ ead \|\| \|\| Q \|\| glottal stop \|\|
 # Credits
 
 Formant synthesis system: inspired by SAM Logo: cropped from
-<http://www.flickr.com/photos/jeanbaptisteparis/119421176/>
+<https://www.flickr.com/photos/jeanbaptisteparis/119421176/>

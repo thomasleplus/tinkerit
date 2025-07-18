@@ -14,7 +14,7 @@ These restrictions may be removed in future versions of this library.
 # Download
 
 [Download TrueRandom
-library.](http://tinkerit.googlecode.com/files/TrueRandom.zip) Extract
+library.](https://github.com/thomasleplus/tinkerit/tree/main/TrueRandom.zip) Extract
 the zip file, and copy the directory to your Arduino libraries folder.
 
 # What happens when you use the Arduino random() function? {#what_happens_when_you_use_the_arduino_random_function}
@@ -107,7 +107,7 @@ total, starting at the given (address).
 When operating devices on an Ethernet network, each device must have a
 unique MAC address. Officially, MAC addresses should be assigned
 formally via the [IEEE Registration
-Authority](http://standards.ieee.org/regauth/index.html). However, for
+Authority](https://standards.ieee.org/regauth/index.html). However, for
 practical purposes, MAC addresses can be randomly assigned without
 problems. This function writes a 6 byte MAC address to a given address.
 Randomly generated MAC addresses are great for projects or workshops
@@ -131,7 +131,7 @@ It is hard to get a truly random number from Arduino. TrueRandom does it
 by setting up a noisy voltage on Analog pin 0, measuring it, and then
 discarding all but the least significant bit of the measured value.
 However, that isn\'t noisy enough, so a [von Neumann whitening
-algorithm](http://en.wikipedia.org/wiki/Hardware_random_number_generator)
+algorithm](https://en.wikipedia.org/wiki/Hardware_random_number_generator)
 gathers enough entropy from multiple readings to ensure a fair
 distribution of 1s and 0s.
 
@@ -143,4 +143,4 @@ works to ensure the random bits are used as efficiently as possible.
 # Projects using TrueRandom {#projects_using_truerandom}
 
 [Generative Music from
-Gijs](http://gieskes.nl/undefined/prepared-gameboy/?f=generative)
+Gijs](https://gieskes.nl/undefined/prepared-gameboy/?f=generative)

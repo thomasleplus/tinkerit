@@ -1,4 +1,4 @@
-## [Video walkthrough now available](http://www.vimeo.com/3453833) {#video_walkthrough_now_available}
+## [Video walkthrough now available](https://www.vimeo.com/3453833) {#video_walkthrough_now_available}
 
 DMX controlled lights and visual effects are easily available from DJ or
 theatrical suppliers. This library gives you a simple way to drive spot
@@ -8,8 +8,8 @@ you will have no problems using !DmxSimple to control something much
 bigger and brighter.
 
 The software output is compatible with the [Tinker.it! DMX
-shield](http://tinkerit.myshopify.com/collections/lighting-solutions/products/dmx-shield),
-or [DIY DMX circuits](http://www.arduino.cc/playground/DMX/DMXShield).
+shield](https://tinkerit.myshopify.com/collections/lighting-solutions/products/dmx-shield),
+or [DIY DMX circuits](https://www.arduino.cc/playground/DMX/DMXShield).
 
 !DmxSimple does some fancy stuff behind the scenes, so there is no need
 to worry about DMX frames, retransmissions and channel orders. Specify
@@ -24,7 +24,7 @@ everything else for you.
 
 # Installation
 
-` Download `[`the archive`](http://tinkerit.googlecode.com/files/DmxSimple_v3.zip)`. Extract to (arduino install)/hardware/libraries/!DmxSimple . Restart Arduino so it recognises the library.`
+` Download `[`the archive`](https://github.com/thomasleplus/tinkerit/tree/main/DmxSimple_v3.zip)`. Extract to (arduino install)/hardware/libraries/!DmxSimple . Restart Arduino so it recognises the library.`
 
 # Example code {#example_code}
 
@@ -50,7 +50,7 @@ everything else for you.
 
 # !DmxSimple community {#dmxsimple_community}
 
-` We now have a group on `[`Google Groups`](http://groups.google.com/group/dmxsimple)`. Get assistance starting with DMX, or show off your installations.`
+` We now have a group on `[`Google Groups`](https://groups.google.com/group/dmxsimple)`. Get assistance starting with DMX, or show off your installations.`
 
 # Library limitations {#library_limitations}
 

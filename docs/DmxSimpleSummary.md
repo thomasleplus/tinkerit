@@ -27,11 +27,11 @@ interface to your own sketches.
 
 Some projects using DmxSimple:
 
-` * `[`Kohtausjone`](http://www.tasankokaiku.com/jarse/?p=268)` - a strobe pedal for live performance`\
-` * `[`Forcefield`](http://www.tinker.it/en/Projects/Forcefield)` - an interactive RFID / colour sensing installation`\
-` * `[`Hop`](http://www.tinker.it/en/Projects/Hop)` - Hop Scotch reimagined for the new millenium`\
-` * `[`Time Table`](http://vimeo.com/6944430)\
-` * `[`Music activated DMX light`](http://www.youtube.com/watch?v=GJfbM0zuRVk)
+` * `[`Kohtausjone`](https://www.tasankokaiku.com/jarse/?p=268)` - a strobe pedal for live performance`\
+` * `[`Forcefield`](https://www.tinker.it/en/Projects/Forcefield)` - an interactive RFID / colour sensing installation`\
+` * `[`Hop`](https://www.tinker.it/en/Projects/Hop)` - Hop Scotch reimagined for the new millenium`\
+` * `[`Time Table`](https://vimeo.com/6944430)\
+` * `[`Music activated DMX light`](https://www.youtube.com/watch?v=GJfbM0zuRVk)
 
 # How simple is DmxSimple? {#how_simple_is_dmxsimple}
 
