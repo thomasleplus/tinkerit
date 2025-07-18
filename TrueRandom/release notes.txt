@@ -1,5 +1,5 @@
 TrueRandom library
 by Peter Knight, Tinker.it! 2010
-http://code.google.com/p/tinkerit
+https://github.com/thomasleplus/tinkerit/
 
 v1: First release

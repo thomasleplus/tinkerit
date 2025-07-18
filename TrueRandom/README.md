@@ -8,7 +8,7 @@ TrueRandom currently functions on the Arduino Diecimila, Duemilanove, 168 and 32
 
 # Download
 
-[Download TrueRandom library.](http://tinkerit.googlecode.com/files/TrueRandom.zip) Extract the zip file, and copy the directory to your Arduino libraries folder.
+[Download TrueRandom library.](https://github.com/thomasleplus/tinkerit/TrueRandom.zip) Extract the zip file, and copy the directory to your Arduino libraries folder.
 
 # What happens when you use the Arduino random() function?
 
@@ -79,7 +79,7 @@ Fills a block of bytes with random numbers. (length) bytes are filled in total, 
 
 ## TrueRandom.mac(address)
 
-When operating devices on an Ethernet network, each device must have a unique MAC address. Officially, MAC addresses should be assigned formally via the [IEEE Registration Authority](http://standards.ieee.org/regauth/index.html). However, for practical purposes, MAC addresses can be randomly assigned without problems. This function writes a 6 byte MAC address to a given address. Randomly generated MAC addresses are great for projects or workshops involving large numbers of Arduino Ethernet shields, as each shield has a different MAC address, even though they are running identical code. See the MacAddress example which shows this in use.
+When operating devices on an Ethernet network, each device must have a unique MAC address. Officially, MAC addresses should be assigned formally via the [IEEE Registration Authority](https://standards.ieee.org/regauth/index.html). However, for practical purposes, MAC addresses can be randomly assigned without problems. This function writes a 6 byte MAC address to a given address. Randomly generated MAC addresses are great for projects or workshops involving large numbers of Arduino Ethernet shields, as each shield has a different MAC address, even though they are running identical code. See the MacAddress example which shows this in use.
 
 ## TrueRandom.uuid(address)
 
@@ -87,10 +87,10 @@ UUIDs are unique identifiers. They are 16 bytes (128 bits) long, which means tha
 
 # How TrueRandom works
 
-It is hard to get a truly random number from Arduino. TrueRandom does it by setting up a noisy voltage on Analog pin 0, measuring it, and then discarding all but the least significant bit of the measured value. However, that isn't noisy enough, so a [von Neumann whitening algorithm](http://en.wikipedia.org/wiki/Hardware_random_number_generator) gathers enough entropy from multiple readings to ensure a fair distribution of 1s and 0s.
+It is hard to get a truly random number from Arduino. TrueRandom does it by setting up a noisy voltage on Analog pin 0, measuring it, and then discarding all but the least significant bit of the measured value. However, that isn't noisy enough, so a [von Neumann whitening algorithm](https://en.wikipedia.org/wiki/Hardware_random_number_generator) gathers enough entropy from multiple readings to ensure a fair distribution of 1s and 0s.
 
 The other functions within TrueRandom construct the requested values by gathering just enough random bits to produce the required numbers. Generating a random bit takes time, so a significant part of the code works to ensure the random bits are used as efficiently as possible.
 
 # Projects using TrueRandom
 
-[Generative Music from Gijs](http://gieskes.nl/undefined/prepared-gameboy/?f=generative)
+[Generative Music from Gijs](https://gieskes.nl/undefined/prepared-gameboy/?f=generative)
