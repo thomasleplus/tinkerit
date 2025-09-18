@@ -11,7 +11,7 @@ on:
 permissions: {}
 
 jobs:
-  lint:
+  yamllint:
     name: Check with YAMLLint
     runs-on: ubuntu-latest
     steps:
